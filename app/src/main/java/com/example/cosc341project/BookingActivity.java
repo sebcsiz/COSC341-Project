@@ -11,6 +11,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.cosc341project.R;
+
 public class BookingActivity extends AppCompatActivity {
 
     private TextView wineryNameText;
@@ -210,7 +212,7 @@ public class BookingActivity extends AppCompatActivity {
             }
 
             // --- Continue to PaymentActivity ---
-            Intent intent = new Intent(BookingActivity.this, PaymentActivity.class);
+            Intent intent = new Intent(BookingActivity.this, com.example.booking_okwine.PaymentActivity.class);
             intent.putExtra("wineryName", wineryName);
             intent.putExtra("selectedExperience", selectedExperience);
             intent.putExtra("name", name);
@@ -226,7 +228,7 @@ public class BookingActivity extends AppCompatActivity {
     }
 
     public void onClickGoToProfile(View view){
-        Intent intent = new Intent(BookingActivity.this, ProfileActivity.class);
+        Intent intent = new Intent(BookingActivity.this, com.example.booking_okwine.ProfileActivity.class);
         startActivity(intent);
     }
 }
