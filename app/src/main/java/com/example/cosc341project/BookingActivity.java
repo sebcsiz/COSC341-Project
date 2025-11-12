@@ -28,24 +28,11 @@ public class BookingActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_booking);
 
+        // --- Handle system insets (status bar / nav bar padding only) ---
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            // --- Ask if user wants to autofill from profile ---
-            new android.app.AlertDialog.Builder(this)
-                    .setTitle("Autofill Profile Information")
-                    .setMessage("Would you like to autofill your booking details based on your saved profile?")
-                    .setPositiveButton("Yes", (dialog, which) -> {
-                        nameInput.setText("User's Name");
-                        emailInput.setText("user@someemail.com");
-                        phoneInput.setText("123-456-7890");
-                        Toast.makeText(this, "Profile information autofilled!", Toast.LENGTH_SHORT).show();
-                    })
-                    .setNegativeButton("No", (dialog, which) -> dialog.dismiss())
-                    .show();
-
             return insets;
-
         });
 
         // --- Initialize Views ---
@@ -60,6 +47,19 @@ public class BookingActivity extends AppCompatActivity {
         partySpinner = findViewById(R.id.PartySize);
         backButton = findViewById(R.id.BackButton);
         continueButton = findViewById(R.id.ContinueButton);
+
+        // --- Ask once if user wants to autofill from profile ---
+        new android.app.AlertDialog.Builder(this)
+                .setTitle("Autofill Profile Information")
+                .setMessage("Would you like to autofill your booking details based on your saved profile?")
+                .setPositiveButton("Yes", (dialog, which) -> {
+                    nameInput.setText("User's Name");
+                    emailInput.setText("user@someemail.com");
+                    phoneInput.setText("123-456-7890");
+                    Toast.makeText(this, "Profile information autofilled!", Toast.LENGTH_SHORT).show();
+                })
+                .setNegativeButton("No", (dialog, which) -> dialog.dismiss())
+                .show();
 
         // ======================================================
         // test code - comment out to use intent
@@ -109,7 +109,7 @@ public class BookingActivity extends AppCompatActivity {
         // --- Party Spinner Setup ---
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this, android.R.layout.simple_spinner_item,
-                new String[]{"Select party size", "1", "2", "3", "4", "5" , "6", "7", "8", "9", "10+"});
+                new String[]{"Select party size", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10+"});
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         partySpinner.setAdapter(adapter);
 
@@ -128,6 +128,7 @@ public class BookingActivity extends AppCompatActivity {
         selected.setBackgroundResource(R.drawable.experience_background_selected);
         selectedExperience = selected.getText().toString();
     }
+
     private void validateAndContinue(String wineryName) {
         // --- Experience selection ---
         if (selectedExperience == null) {
@@ -222,10 +223,9 @@ public class BookingActivity extends AppCompatActivity {
 
         Toast.makeText(this, "All inputs look good! Proceeding to payment...", Toast.LENGTH_SHORT).show();
         startActivity(intent);
-
     }
 
-    public void onClickGoToProfile(View view){
+    public void onClickGoToProfile(View view) {
         Intent intent = new Intent(BookingActivity.this, ProfileActivity.class);
         startActivity(intent);
     }

@@ -12,8 +12,6 @@
         android:layout_height="wrap_content">
 
         <!-- Title -->
-
-        <!-- Saved Cards Section -->
         <TextView
             android:id="@+id/paymentTitle"
             android:layout_width="0dp"
@@ -24,10 +22,10 @@
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- Saved Cards Section -->
         <TextView
             android:id="@+id/savedCardsLabel"
             android:layout_width="wrap_content"
@@ -39,43 +37,63 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="8dp" />
 
-        <LinearLayout
-            android:id="@+id/savedCardsRow"
-            android:layout_width="382dp"
-            android:layout_height="41dp"
+        <HorizontalScrollView
+            android:id="@+id/savedCardsScroll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:scrollbars="none"
+            app:layout_constraintTop_toBottomOf="@id/savedCardsLabel"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/savedCardsLabel">
+            app:layout_constraintEnd_toEndOf="parent">
 
-            <!-- Sample Card 1 -->
-            <Button
-                android:id="@+id/cardVisa"
+            <LinearLayout
+                android:id="@+id/savedCardsRow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:backgroundTint="#E0E0E0"
-                android:text="Visa **** 4242" />
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="8dp">
 
-            <!-- Sample Card 2 -->
-            <Button
-                android:id="@+id/cardMaster"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:backgroundTint="#E0E0E0"
-                android:text="Mastercard **** 8888" />
+                <!-- Sample Card 1 -->
+                <Button
+                    android:id="@+id/cardVisa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
+                    android:text="Visa **** 4242"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp"
+                    android:background="@drawable/rounded_card_button_dark" />
 
-            <!-- Sample Card 3 -->
-            <Button
-                android:id="@+id/cardAmex"
-                android:layout_width="227dp"
-                android:layout_height="match_parent"
-                android:backgroundTint="#E0E0E0"
-                android:text="Amex **** 0005" />
-        </LinearLayout>
+                <!-- Sample Card 2 -->
+                <Button
+                    android:id="@+id/cardMaster"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
+                    android:text="Mastercard **** 8888"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp"
+                    android:background="@drawable/rounded_card_button_dark" />
+
+                <!-- Sample Card 3 -->
+                <Button
+                    android:id="@+id/cardAmex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Amex **** 0005"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp"
+                    android:background="@drawable/rounded_card_button_dark" />
+            </LinearLayout>
+        </HorizontalScrollView>
 
         <!-- Card Info Section -->
         <TextView
@@ -85,7 +103,7 @@
             android:text="Card Information"
             android:textStyle="bold"
             android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@id/savedCardsRow"
+            app:layout_constraintTop_toBottomOf="@id/savedCardsScroll"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="12dp" />
 
@@ -242,8 +260,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Complete Booking" />
-
         </LinearLayout>
+
         <!-- Bottom Navigation Buttons -->
         <LinearLayout
             android:id="@+id/bottomNav"
@@ -253,7 +271,6 @@
             android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/paymentButtons">
 
@@ -276,9 +293,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Profile"
-                android:onClick="onClickGoToProfile"/>
+                android:onClick="onClickGoToProfile" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </ScrollView>
