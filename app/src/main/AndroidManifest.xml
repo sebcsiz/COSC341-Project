@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.COSC341Project">
         <activity
+            android:name=".ListingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OwnerMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditTourListingActivity"
+            android:exported="false" />
+        <activity
             android:name=".ReceiptActivity"
             android:exported="false" />
         <activity
