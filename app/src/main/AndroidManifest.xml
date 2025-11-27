@@ -12,7 +12,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.COSC341Project">
         <activity
-            android:name=".MainActivity"
+            android:name=".ListingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OwnerMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditTourListingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ReceiptActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="true" />
+        <activity
+            android:name=".BookingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

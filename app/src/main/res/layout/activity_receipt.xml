@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ReceiptActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <TextView
+            android:id="@+id/receiptTitle"
+            android:layout_width="match_parent"
+            android:layout_height="243dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="Your 'Tour Name' experience with 'Winery Name' has been successfully booked!"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="356dp"
+            android:layout_height="2dp"
+            android:layout_marginBottom="12dp"
+            android:background="#CCCCCC" />
+
+        <!-- Receipt Information -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="252dp"
+            android:orientation="vertical"
+            android:paddingHorizontal="8dp">
+
+            <TextView
+                android:id="@+id/lineWinery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Winery: "
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/lineName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Name: "
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/lineParty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Party: "
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/lineDateTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Date and Time: "
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/lineExperience"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Experience: "
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/lineAmountPaid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Amount Paid: "
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/lineAmountDue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Amount Due: "
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/lineCardUsed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Card Used: "
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <!-- QR Code -->
+        <ImageView
+            android:id="@+id/qrCode"
+            android:layout_width="226dp"
+            android:layout_height="201dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="Booking QR Code" />
+
+        <!-- Bottom Action Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/addToCalendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="Add to Calendar" />
+
+            <Button
+                android:id="@+id/shareReceipt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Share or Export" />
+        </LinearLayout>
+
+        <!-- ✅ Bottom Navigation Buttons -->
+        <LinearLayout
+            android:id="@+id/bottomNav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp">
+
+            <Button
+                android:id="@+id/HomeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:text="Home" />
+
+            <Button
+                android:id="@+id/MyToursButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:text="My Tours" />
+
+            <Button
+                android:id="@+id/Profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:onClick="onClickGoToProfile"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

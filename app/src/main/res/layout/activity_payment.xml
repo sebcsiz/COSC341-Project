@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".PaymentActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/paymentTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:gravity="center"
+            android:text="This winery requires a credit card to complete your booking"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Saved Cards Section -->
+        <TextView
+            android:id="@+id/savedCardsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Saved Cards"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/paymentTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp" />
+
+        <HorizontalScrollView
+            android:id="@+id/savedCardsScroll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:scrollbars="none"
+            app:layout_constraintTop_toBottomOf="@id/savedCardsLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:id="@+id/savedCardsRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="8dp">
+
+                <!-- Sample Card 1 -->
+                <Button
+                    android:id="@+id/cardVisa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
+                    android:text="Visa **** 4242"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp"
+                    android:background="@drawable/rounded_card_button_dark" />
+
+                <!-- Sample Card 2 -->
+                <Button
+                    android:id="@+id/cardMaster"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
+                    android:text="Mastercard **** 8888"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp"
+                    android:background="@drawable/rounded_card_button_dark" />
+
+                <!-- Sample Card 3 -->
+                <Button
+                    android:id="@+id/cardAmex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Amex **** 0005"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp"
+                    android:background="@drawable/rounded_card_button_dark" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Card Info Section -->
+        <TextView
+            android:id="@+id/cardInfoTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Card Information"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/savedCardsScroll"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="12dp" />
+
+        <EditText
+            android:id="@+id/cardNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Card Number"
+            android:inputType="number"
+            app:layout_constraintTop_toBottomOf="@id/cardInfoTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/cardName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Name on Card"
+            android:inputType="textPersonName"
+            app:layout_constraintTop_toBottomOf="@id/cardNumber"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" />
+
+        <LinearLayout
+            android:id="@+id/expCvvRow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintTop_toBottomOf="@id/cardName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp">
+
+            <EditText
+                android:id="@+id/expDate"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="Exp Date (MM/YY)"
+                android:inputType="date" />
+
+            <EditText
+                android:id="@+id/cvv"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="CVV"
+                android:inputType="numberPassword"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <!-- Billing Address Section -->
+        <TextView
+            android:id="@+id/billingTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Billing Address"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/expCvvRow"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/country"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Country"
+            app:layout_constraintTop_toBottomOf="@id/billingTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/state"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="State / Province"
+            app:layout_constraintTop_toBottomOf="@id/country"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/city"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="City"
+            app:layout_constraintTop_toBottomOf="@id/state"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/zip"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="ZIP / Postal Code"
+            android:inputType="number"
+            app:layout_constraintTop_toBottomOf="@id/city"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Street Address"
+            android:inputType="textPostalAddress"
+            app:layout_constraintTop_toBottomOf="@id/zip"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" />
+
+        <!-- Save to Account Checkbox -->
+        <CheckBox
+            android:id="@+id/saveToAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add card to my account"
+            app:layout_constraintTop_toBottomOf="@id/address"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="12dp" />
+
+        <!-- Buttons -->
+        <LinearLayout
+            android:id="@+id/paymentButtons"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/saveToAccount"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="32dp">
+
+            <Button
+                android:id="@+id/backPayment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Back" />
+
+            <Space
+                android:layout_width="24dp"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/completeBooking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Complete Booking" />
+        </LinearLayout>
+
+        <!-- Bottom Navigation Buttons -->
+        <LinearLayout
+            android:id="@+id/bottomNav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/paymentButtons">
+
+            <Button
+                android:id="@+id/HomeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:text="Home" />
+
+            <Button
+                android:id="@+id/MyToursButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:text="My Tours" />
+
+            <Button
+                android:id="@+id/Profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:onClick="onClickGoToProfile" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
