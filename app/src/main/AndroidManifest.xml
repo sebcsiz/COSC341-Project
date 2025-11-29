@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.COSC341Project">
         <activity
+            android:name=".SearchActivity"
             android:name=".ui.CompareToursActivity"
             android:exported="false" />
         <activity
