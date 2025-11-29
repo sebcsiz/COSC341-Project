@@ -4,12 +4,29 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.*;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import android.util.Patterns;
+
+import com.example.cosc341project.model.Tour;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 public class BookingActivity extends AppCompatActivity {
 
@@ -21,6 +38,7 @@ public class BookingActivity extends AppCompatActivity {
     private Button backButton, continueButton;
 
     private String selectedExperience = null;
+    private Tour tour;   // Tour received from previous Activity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,31 +80,64 @@ public class BookingActivity extends AppCompatActivity {
                 .show();
 
         // ======================================================
-        // test code - comment out to use intent
+        // RECEIVE TOUR OBJECT FROM INTENT
         // ======================================================
+        Intent i = getIntent();
+        tour = (Tour) i.getSerializableExtra("tour");
 
-        String wineryName = "Quail’s Gate Winery";
-        int wineryImageRes = 0; // No image used for testing
-        String[] tourDescriptions = {
-                "Classic Tasting\nA casual introduction to our wines.\nPrice: $35",
-                "Reserve Tour\nIncludes barrel tasting and cheese pairing.\nPrice: $65",
-                "Private Cellar Experience\nGuided visit with premium wines.\nPrice: $120"
-        };
+        if (tour == null) {
+            tour = new Tour(
+                    "TEST WINERY",
+                    "Test description",
+                    "Test tasting",
+                    "123 Test St",
+                    "(000) 000-0000",
+                    "Test Driver",
+                    3.0,
+                    4.5,
+                    100,
+                    199.99,
+                    "@drawable/quail_gate.png",
+                    java.util.Arrays.asList("Test Option 1", "Test Option 2")
+            );
+        }
 
-        // ======================================================
 
-        // --- Receive Winery Info and Tour Descriptions from Intent ---
-//        Intent i = getIntent();
-//        String wineryName = i.getStringExtra("wineryName");
-//        int wineryImageRes = i.getIntExtra("wineryImageResId", 0);
-//        String[] tourDescriptions = i.getStringArrayExtra("tourDescriptions");
-
-        // --- Set Winery Info ---
+        // --- Set Winery Name ---
+        String wineryName = tour.getName();
         wineryNameText.setText(wineryName);
-        if (wineryImageRes != 0) wineryImage.setBackgroundResource(wineryImageRes);
+
+        // --- Set Winery Image from @drawable/... string ---
+        int imageResId = resolveImageResource(tour.getImage());
+        if (imageResId != 0) {
+            wineryImage.setBackgroundResource(imageResId);
+
+            // Hide the placeholder text inside the FrameLayout (first child)
+            if (wineryImage.getChildCount() > 0) {
+                View child = wineryImage.getChildAt(0);
+                child.setVisibility(View.GONE);
+            }
+        }
+
+        // --- Build Experience List from tastingDescription + menuItems ---
+        List<String> experienceList = new ArrayList<>();
+
+        // Main experience: tasting description + total tour price
+        String mainExperience = tour.getTastingDescription();
+        if (tour.getPrice() > 0) {
+            String priceText = String.format(Locale.CANADA, "Tour Price: $%.2f", tour.getPrice());
+            mainExperience = mainExperience + "\n" + priceText;
+        }
+        experienceList.add(mainExperience);
+
+        // Add menu items as additional selectable experiences (if any)
+        List<String> menuItems = tour.getMenuItems();
+        if (menuItems != null && !menuItems.isEmpty()) {
+            experienceList.addAll(menuItems);
+        }
 
         // --- Dynamically Create Experience Cards ---
-        for (String desc : tourDescriptions) {
+        for (String desc : experienceList) {
             TextView tv = new TextView(this);
             tv.setText(desc);
             tv.setTextColor(getResources().getColor(android.R.color.black));
@@ -95,10 +146,11 @@ public class BookingActivity extends AppCompatActivity {
             tv.setGravity(Gravity.CENTER);
             tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
             tv.setSingleLine(false);
-            tv.setMaxLines(5);
+            tv.setMaxLines(8);
             tv.setEllipsize(null);
 
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(350, 300);
+            LinearLayout.LayoutParams params =
+                    new LinearLayout.LayoutParams(350, 300);
             params.setMargins(16, 8, 16, 8);
             tv.setLayoutParams(params);
 
@@ -108,8 +160,10 @@ public class BookingActivity extends AppCompatActivity {
 
         // --- Party Spinner Setup ---
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                this, android.R.layout.simple_spinner_item,
-                new String[]{"Select party size", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10+"});
+                this,
+                android.R.layout.simple_spinner_item,
+                new String[]{"Select party size", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10+"}
+        );
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         partySpinner.setAdapter(adapter);
 
@@ -117,7 +171,7 @@ public class BookingActivity extends AppCompatActivity {
         backButton.setOnClickListener(v -> onBackPressed());
 
         // --- Continue Button ---
-        continueButton.setOnClickListener(v -> validateAndContinue(wineryName));
+        continueButton.setOnClickListener(v -> validateAndContinue());
     }
 
     private void selectExperience(TextView selected) {
@@ -129,7 +183,7 @@ public class BookingActivity extends AppCompatActivity {
         selectedExperience = selected.getText().toString();
     }
 
-    private void validateAndContinue(String wineryName) {
+    private void validateAndContinue() {
         // --- Experience selection ---
         if (selectedExperience == null) {
             Toast.makeText(this, "Please select a tour option.", Toast.LENGTH_SHORT).show();
@@ -145,14 +199,14 @@ public class BookingActivity extends AppCompatActivity {
 
         // --- Email ---
         String email = emailInput.getText().toString().trim();
-        if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             Toast.makeText(this, "Please check your email format.", Toast.LENGTH_SHORT).show();
             return;
         }
 
         // --- Phone ---
         String phone = phoneInput.getText().toString().trim();
-        if (phone.isEmpty() || !android.util.Patterns.PHONE.matcher(phone).matches()) {
+        if (phone.isEmpty() || !Patterns.PHONE.matcher(phone).matches()) {
             Toast.makeText(this, "Please enter a valid phone number.", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -212,7 +266,7 @@ public class BookingActivity extends AppCompatActivity {
 
         // --- Continue to PaymentActivity ---
         Intent intent = new Intent(BookingActivity.this, PaymentActivity.class);
-        intent.putExtra("wineryName", wineryName);
+        intent.putExtra("tour", tour); // send full Tour object
         intent.putExtra("selectedExperience", selectedExperience);
         intent.putExtra("name", name);
         intent.putExtra("email", email);
@@ -228,5 +282,33 @@ public class BookingActivity extends AppCompatActivity {
     public void onClickGoToProfile(View view) {
         Intent intent = new Intent(BookingActivity.this, ProfileActivity.class);
         startActivity(intent);
+    }
+
+    /**
+     * Convert a Tour.image string like "@drawable/quail_gate.png"
+     * into a real R.drawable.quail_gate resource ID.
+     */
+    private int resolveImageResource(String imageRef) {
+        if (imageRef == null || imageRef.isEmpty()) return 0;
+
+        String clean = imageRef.trim();
+
+        // Remove leading '@' if present
+        if (clean.startsWith("@")) {
+            clean = clean.substring(1); // "drawable/quail_gate.png"
+        }
+
+        // Remove "drawable/" prefix if present
+        if (clean.startsWith("drawable/")) {
+            clean = clean.substring("drawable/".length()); // "quail_gate.png"
+        }
+
+        // Remove extension (.png, .jpg, .jpeg, etc.)
+        int dotIndex = clean.lastIndexOf('.');
+        if (dotIndex != -1) {
+            clean = clean.substring(0, dotIndex);
+        }
+
+        return getResources().getIdentifier(clean, "drawable", getPackageName());
     }
 }
