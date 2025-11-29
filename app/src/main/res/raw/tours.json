@@ -1,0 +1,157 @@
+[
+  {
+    "name": "East Kelowna Experience",
+    "wineryDescription": "Art-forward winery known for vibrant tasting rooms and live events.",
+    "tastingDescription": "Guided tasting of five featured estate wines.",
+    "address": "3240 Pooley Rd, Kelowna, BC",
+    "phone": "(250) 765-1234",
+    "driverName": "John Doe",
+    "durationHours": 5.5,
+    "rating": 4.5,
+    "reviewCount": 191,
+    "price": 549.99,
+    "image": "@drawable/east_kelowna.jpg",
+    "menuItems": [
+      "Flight of 5 wines - $19.99",
+      "Charcuterie board - $27.99",
+      "Dessert pairing - $14.99"
+    ]
+  },
+  {
+    "name": "Okanagan Lake Connection",
+    "wineryDescription": "Lakeside winery with dockside views and relaxed tastings.",
+    "tastingDescription": "Four-wine tasting with small bites by the water.",
+    "address": "5221 Lakeshore Dr, Osoyoos, BC",
+    "phone": "(250) 495-5810",
+    "driverName": "Jane Doe",
+    "durationHours": 4.0,
+    "rating": 3.5,
+    "reviewCount": 138,
+    "price": 485.0,
+    "image": "@drawable/lakeside_cellars.jpg",
+    "menuItems": [
+      "Standard tasting - $14.99",
+      "Cheese & cracker plate - $22.99",
+      "Dessert flight - $12.99"
+    ]
+  },
+  {
+    "name": "Summerhill Organic Adventure",
+    "wineryDescription": "Organic winery known for its pyramid cellar and sparkling wines.",
+    "tastingDescription": "Estate organic tasting featuring diverse varietals.",
+    "address": "4870 Chute Lake Rd, Kelowna, BC",
+    "phone": "(250) 764-8000",
+    "driverName": "Mark Thompson",
+    "durationHours": 3.5,
+    "rating": 4.4,
+    "reviewCount": 301,
+    "price": 439.99,
+    "image": "@drawable/summerhill.jpg",
+    "menuItems": [
+      "Organic Tasting Flight - $21.99",
+      "Fruit & Cheese Board - $16.99"
+    ]
+  },
+  {
+    "name": "Quails' Gate Reserve Tour",
+    "wineryDescription": "Lakeside family-owned winery famed for Pinot Noir and scenic vineyard views.",
+    "tastingDescription": "Reserve tasting with guided vineyard stroll.",
+    "address": "3303 Boucherie Rd, West Kelowna, BC",
+    "phone": "(250) 769-4451",
+    "driverName": "Sophia Clarke",
+    "durationHours": 4.0,
+    "rating": 4.8,
+    "reviewCount": 410,
+    "price": 649.99,
+    "image": "@drawable/quail_gate.png",
+    "menuItems": [
+      "Reserve Flight - $29.99",
+      "Luxe Charcuterie - $34.99"
+    ]
+  },
+  {
+    "name": "Cedar Creek Platinum Tour",
+    "wineryDescription": "Organic-focused winery with modern architecture and mountain views.",
+    "tastingDescription": "Platinum-tier tasting and barrel room experience.",
+    "address": "5445 Lakeshore Rd, Kelowna, BC",
+    "phone": "(250) 764-8866",
+    "driverName": "Liam Turner",
+    "durationHours": 5.0,
+    "rating": 4.6,
+    "reviewCount": 220,
+    "price": 575.5,
+    "image": "@drawable/cedar_creek.jpeg",
+    "menuItems": [
+      "Riserva Flight - $32.99",
+      "Okanagan Smoked Meats Board - $28.99"
+    ]
+  },
+  {
+    "name": "Mission Hill Family Estate Tour",
+    "wineryDescription": "Iconic winery with panoramic lake views and award-winning wines.",
+    "tastingDescription": "Reserve tasting with curated pairings.",
+    "address": "1730 Mission Hill Rd, West Kelowna, BC",
+    "phone": "(250) 768-6400",
+    "driverName": "Hannah Wilson",
+    "durationHours": 3.0,
+    "rating": 4.9,
+    "reviewCount": 1500,
+    "price": 225.0,
+    "image": "@drawable/mission_hill.jpg",
+    "menuItems": [
+      "Reserve Tasting – $35.00",
+      "Estate Lunch Pairing – $45.00"
+    ]
+  },
+  {
+    "name": "Mt. Boucherie Vineyard Tour",
+    "wineryDescription": "Modern winery producing bold, estate-grown reds.",
+    "tastingDescription": "Four-wine tasting with vineyard overlook.",
+    "address": "829 Douglas Rd, West Kelowna, BC",
+    "phone": "(250) 762-9744",
+    "driverName": "Noah Anderson",
+    "durationHours": 3.75,
+    "rating": 4.3,
+    "reviewCount": 175,
+    "price": 449.5,
+    "image": "@drawable/mt_boucherie.png",
+    "menuItems": [
+      "Signature Tasting - $17.99",
+      "Small Tapas Plate - $14.99"
+    ]
+  },
+  {
+    "name": "Indigenous World Winery Tour",
+    "wineryDescription": "Indigenous-owned winery blending culture with modern winemaking.",
+    "tastingDescription": "Cultural tasting flight featuring regional varietals.",
+    "address": "2218 Horizon Dr, West Kelowna, BC",
+    "phone": "(250) 769-2821",
+    "driverName": "Ava Whitehorse",
+    "durationHours": 4.25,
+    "rating": 4.4,
+    "reviewCount": 199,
+    "price": 520.0,
+    "image": "@drawable/indigenous_world.jpeg",
+    "menuItems": [
+      "Cultural Tasting Flight - $23.99",
+      "Salmon & Bannock Plate - $19.99"
+    ]
+  },
+  {
+    "name": "Tantalus Heritage Tour",
+    "wineryDescription": "Historic Riesling-focused winery with valley views.",
+    "tastingDescription": "Vertical Riesling tasting in the estate gallery.",
+    "address": "1670 DeHart Rd, Kelowna, BC",
+    "phone": "(250) 764-0078",
+    "driverName": "Mason Brooks",
+    "durationHours": 3.25,
+    "rating": 4.7,
+    "reviewCount": 182,
+    "price": 470.0,
+    "image": "@drawable/tantalus.png",
+    "menuItems": [
+      "Riesling Vertical Flight - $25.99",
+      "Artisan Cheese Plate - $18.99"
+    ]
+  }
+]
