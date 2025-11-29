@@ -64,8 +64,8 @@ public class PaymentActivity extends AppCompatActivity {
         }
 
         // Autofill sample cards
-        cardVisa.setOnClickListener(v -> fillCard("4111 1111 1111 1111", "John Doe", "12/27", "123"));
-        cardMaster.setOnClickListener(v -> fillCard("5555 5555 5555 4444", "Jane Smith", "08/26", "456"));
+        cardVisa.setOnClickListener(v -> fillCard("4111 1111 1111 4242", "John Doe", "12/27", "123"));
+        cardMaster.setOnClickListener(v -> fillCard("5555 5555 5555 8888", "Jane Smith", "08/26", "456"));
         cardAmex.setOnClickListener(v -> fillCard("3782 822463 10005", "Alex Johnson", "05/28", "789"));
 
         // Back button
