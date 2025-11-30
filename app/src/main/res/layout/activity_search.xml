@@ -20,7 +20,7 @@
         android:textStyle="bold"/>
 
     <SearchView
-        android:id="@+id/WinerySearchView"
+        android:id="@+id/WineryNameSearchView"
         android:layout_width="340dp"
         android:layout_height="55dp"
         android:iconifiedByDefault="false"
@@ -38,7 +38,7 @@
         android:layout_marginStart="25dp"
         android:text="@string/compare"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/WinerySearchView" />
+        app:layout_constraintTop_toBottomOf="@+id/WineryNameSearchView" />
 
     <Button
         android:id="@+id/BookButton"
@@ -48,7 +48,7 @@
         android:layout_marginEnd="25dp"
         android:text="@string/book"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/WinerySearchView" />
+        app:layout_constraintTop_toBottomOf="@+id/WineryNameSearchView" />
 
     <Button
         android:id="@+id/SearchHomeButton"
@@ -79,6 +79,16 @@
         android:text="@string/profile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ListView
+        android:id="@+id/WinerySearchListView"
+        android:layout_width="350dp"
+        android:layout_height="444dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/WineryNameSearchView"
+        android:visibility="gone"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
