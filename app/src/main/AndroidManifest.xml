@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.COSC341Project">
         <activity
-            android:name=".MissionHillActivity"
+            android:name=".WineryInfoActivity"
             android:exported="false" />
         <activity
             android:name=".SearchActivity"
