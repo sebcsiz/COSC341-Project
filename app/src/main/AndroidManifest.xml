@@ -12,9 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.COSC341Project">
         <activity
-            android:name=".SearchActivity"
-            android:name=".ui.CompareToursActivity"
+            android:name=".MissionHillActivity"
             android:exported="false" />
+        <activity
+            android:name=".SearchActivity"
+            android:exported="false" />
+        <!--android:name=".ui.CompareToursActivity"--><!--This line was originally under android:name=".SearchActivity", was causing an error so I removed it-->
         <activity
             android:name=".ui.SelectToursActivity"
             android:exported="false" />
