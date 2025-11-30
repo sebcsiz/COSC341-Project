@@ -8,6 +8,8 @@
     <string name="home">Home</string>
     <string name="myTours">My Tours</string>
     <string name="profile">Profile</string>
+
     <string name="title_activity_mission_hill">MissionHillActivity</string>
-    <string name="MissionHill">Mission Hill Family Estate Winery</string>
+
+    <string name="WineryName">Winery Name</string>
 </resources>
