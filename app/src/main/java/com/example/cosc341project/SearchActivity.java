@@ -10,6 +10,17 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class SearchActivity extends AppCompatActivity {
 
+    String[] WinerySearchList = {"Adega on 45th Estate Winery", "Ancient Hill Estate Winery", "Arrowleaf Cellars", "Bartier Bros. Vineyard & Winery", "Bella Wines", "Bench 1775 Winery", "Black Hill Estate Winery", "Black Widow Winery", "Blast Church Vineyards", "Blue Mountain Vineyard and Cellars",
+            "Bordertown Winery", "Burrowing Owl Vineyards", "Calona Vineyards", "Castoro de Oro Estate Winery", "CedarCreek Estate Winery", "Chain Reaction Winery", "Corcelettes Estate Winery", "Covert Farms Family Estate", "Crowsnest Vineyards", "D’angelo Estate Winery", "Da Silva Vineyards",
+            "Daydreamer Wines", "Deep Roots Winery", "Desert Hill Estate Winery", "Dirty Laundry Vineyards", "Eau Viver Winery", "Elephant Island Winery", "Fairview Cellars", "Forbidden Fruit Winery", "French Door Estate Winery", "Gehringer Brothers Estate Winery", "Grey Monk estate Winery",
+            "Hester Creek Estate Winery", "Hillside Winery", "Howling Bluff Estate Winery", "Intersection Estate Winery", "JoieFarm Winery", "Kettle Vally Winery", "Kitsch Wines", "La Stella Winery", "Lake Breeze Vineyards", "Lang Vineyards", "Laughing Stock Vineyards", "Le Vieux Pin",
+            "Liber Farms & Winery", "Little Farm Winery", "Lock & Worth Winery", "Lunessence Winery & Vineyards", "Marichel Vineard", "Maverick Estate Winery", "Meyer Family Vineyards", "Mission Hill Family Estate Winery", "Moon Curser Vineyards", "Moraine estate Winery", "Mt. Boucherie estate Winery",
+            "Nichol Vinyards", "Nk’mip Cellars", "Noble Ridge Vineyard & Winery", "Nostalgia Wines", "Origin Wines", "Orofino Winery", "Painted Rock Estate Winery", "Pentâge Winery", "Phantom Creek Estates", "Poplar Grove Winery", "Quail’s Gate Winery", "Ramification Cellars", "Red Rooster Winery",
+            "Riverstone Estate Winery", "Road 13 Vineyards", "Robin Ridge Winery", "Roche Wines", "Rollingdale Winery", "Ruby Blues Winery", "Rust Wine Co.", "Sandhill Wines", "See Ya Later Ranch", "Seven Stones Winery", "Silver Sage Winery", "Solvero Wines", "SpearHead Winery", "Sperling Vineyards",
+            "St. Hubertus & Oak Bay Estate Winery", "Stag’s Hollow Winery", "Stoneboat Vineyards", "Sumac Ridge Estate Winery", "Summerhill Pyramid Winery", "Synchromesh Wines", "Tantalus Vineyards", "Terravista Vineyards", "The Vibrant Vine Winery", "Therapy Vineyards", "Thornhaven Estates Winery",
+            "Three Sisters Winery", "TIME Family of Wines", "Tinhorn Creek Vineyards", "Township 7 Vineyards", "Van Western Vineyards", "Wild Goose Vineyards & Winery", "Winemaker’s Cut"};
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
