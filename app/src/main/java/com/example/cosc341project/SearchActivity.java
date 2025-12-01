@@ -121,7 +121,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 // Create Intent to start CompareToursActivity
-                Intent compareIntent = new Intent(SearchActivity.this, CompareToursActivity.class); //import Intent class, import CompareToursActivity class
+                Intent compareIntent = new Intent(SearchActivity.this, SearchActivity.class); //import Intent class (swap SearchActivity.class with ????Activity.class)
                 startActivity(compareIntent); //starting the new activity
             }//end onClick
         });//end compareButton listener
@@ -130,7 +130,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Create Intent to start ????Activity
-                Intent bookIntent = new Intent(SearchActivity.this, SearchActivity.class); //import Intent class (swap SearchActivity.class with ????Activity)
+                Intent bookIntent = new Intent(SearchActivity.this, SearchActivity.class); //(swap SearchActivity.class with ????Activity.class)
                 startActivity(bookIntent); //starting the new activity
             } //end onClick
         });//end bookButton listener
@@ -138,8 +138,8 @@ public class SearchActivity extends AppCompatActivity {
         homeButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                // Create Intent to start ????Activity
-                Intent homeIntent = new Intent(SearchActivity.this, SearchActivity.class); //import Intent class (swap SearchActivity.class with ????Activity)
+                // Create Intent to start SearchActivity
+                Intent homeIntent = new Intent(SearchActivity.this, SearchActivity.class); //
                 startActivity(homeIntent); //starting the new activity
             } //end onClick
         });//end homeButton listener
@@ -148,7 +148,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Create Intent to start ????Activity
-                Intent myToursIntent = new Intent(SearchActivity.this, SearchActivity.class); //import Intent class (swap SearchActivity.class with ????Activity)
+                Intent myToursIntent = new Intent(SearchActivity.this, SearchActivity.class); //(swap SearchActivity.class with ????Activity.class)
                 startActivity(myToursIntent); //starting the new activity
             } //end onClick
         });//end myToursButton listener
@@ -157,7 +157,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Create Intent to start ProfileActivity
-                Intent profileIntent = new Intent(SearchActivity.this, ProfileActivity.class); //import Intent class
+                Intent profileIntent = new Intent(SearchActivity.this, ProfileActivity.class); //check????
                 startActivity(profileIntent); //starting the new activity
             } //end onClick
         });//end profileButton listener
