@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24dp"
-    tools:context=".ProfileActivity">
+    tools:context=".ProfileOwnerActivity">
 
     <LinearLayout
         android:id="@+id/bottomNav"
@@ -27,7 +27,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="12dp"
-            android:onClick="onClickGoToSearch"
             android:text="Home" />
 
         <Button
@@ -49,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="user@someemail.com"
+        android:text="owner@someemail.com"
         android:textColor="#666666"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"

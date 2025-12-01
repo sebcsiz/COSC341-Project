@@ -52,8 +52,8 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 // Move to another page
-                Intent intent = new Intent(ProfileActivity.this, OwnerMainActivity.class);
-                startActivity(intent); // Added intent to get from profile page to login page.
+                Intent intent = new Intent(ProfileActivity.this, SearchActivity.class);
+                startActivity(intent); // Added intent to get from profile page to home page
 
 
                 finish();
@@ -63,9 +63,9 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                // Move to another page
-                Intent intent = new Intent(ProfileActivity.this, ListingsActivity.class);
-                startActivity(intent); // Added intent to get from profile page to login page.
+                // Move to another page (My Tours page? Search activity page?)
+                Intent intent = new Intent(ProfileActivity.this, SearchActivity.class);
+                startActivity(intent);
 
 
                 finish();

@@ -51,9 +51,6 @@
             android:name=".BookingActivity"
             android:exported="true" />
         <activity
-            android:name=".LoginActivity"
-            android:exported="true" />
-        <activity
             android:name=".EditTourListingActivity"
             android:exported="false" />
         <activity
@@ -62,15 +59,20 @@
         <activity
             android:name=".OwnerMainActivity"
             android:exported="false" />
-        <!-- <activity -->
-        <!-- android:name=".LoginActivity" -->
-        <!-- android:exported="true"> -->
-        <!-- <intent-filter> -->
-        <!-- <action android:name="android.intent.action.MAIN" /> -->
-        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-        <!-- </intent-filter> -->
-        <!-- </activity> -->
         <activity
+            android:name=".ProfileOwnerActivity"
+            android:exported="true" />
+
+         <activity
+             android:name=".LoginActivity"
+             android:exported="true">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+        </activity>
+
+        <!-- <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -78,7 +80,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity> -->
 
         <!--to change the launcher activity to SearchActivity use commented code below and remove lines 34-37 and 60-68 (I believe those are the right lines to remove)-->
         <!-- <activity

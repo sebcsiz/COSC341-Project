@@ -262,7 +262,7 @@ public class EditTourListingActivity extends AppCompatActivity {
         });
 
         ProfileButton.setOnClickListener(v -> {
-            Intent intent = new Intent(this, ProfileActivity.class);
+            Intent intent = new Intent(this, ProfileOwnerActivity.class);
             startActivity(intent);
         });
     }

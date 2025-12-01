@@ -19,7 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="50dp"/>
 
-    <!-- Cards Row (centered vertically between title and bottom nav) -->
+    <!-- Cards Row -->
     <LinearLayout
         android:id="@+id/cardRow"
         android:layout_width="0dp"
