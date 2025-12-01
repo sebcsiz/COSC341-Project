@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="3dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Main photo for the listing -->
+        <ImageView
+            android:id="@+id/ivListingImage"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/indigenous_world" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvListingTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Title:"
+                android:textSize="16sp"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvListingLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description / Location"
+                android:textSize="15sp"
+                android:layout_marginBottom="6dp" />
+
+            <!-- NEW: price, duration, capacity -->
+            <TextView
+                android:id="@+id/tvListingPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price:"
+                android:textSize="14sp"
+                android:layout_marginBottom="2dp" />
+
+            <TextView
+                android:id="@+id/tvListingDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Duration:"
+                android:textSize="14sp"
+                android:layout_marginBottom="2dp" />
+
+            <TextView
+                android:id="@+id/tvListingCapacity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Capacity:"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+            <!-- END NEW -->
+
+            <TextView
+                android:id="@+id/tvListingAwards"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Awards: None"
+                android:textSize="14sp"
+                android:layout_marginBottom="10dp" />
+
+            <Button
+                android:id="@+id/btnEditListing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit listing"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#6A4BBC" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
