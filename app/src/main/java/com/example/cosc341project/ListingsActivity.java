@@ -98,7 +98,7 @@ public class ListingsActivity extends AppCompatActivity {
         });
 
         ProfileButton.setOnClickListener(v -> {
-            Intent intent = new Intent(ListingsActivity.this, ProfileActivity.class);
+            Intent intent = new Intent(ListingsActivity.this, ProfileOwnerActivity.class);
             startActivity(intent);
         });
     }

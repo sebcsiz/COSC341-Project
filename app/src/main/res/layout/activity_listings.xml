@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#F7F2FB">
 
-    <!-- Scrollable main content -->
+
     <ScrollView
         android:id="@+id/contentScroll"
         android:layout_width="0dp"

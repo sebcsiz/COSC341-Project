@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (email.isEmpty() || password.isEmpty()) {
                     Toast.makeText(LoginActivity.this,
                             "Please fill all fields", Toast.LENGTH_SHORT).show();
-                } else if (email.equals("owner@email.com") && password.equals("1234")) {
+                } else if (email.equals("owner@someemail.com") && password.equals("1234")) {
                     Toast.makeText(LoginActivity.this,
                             "Login Successful!", Toast.LENGTH_SHORT).show();
 
@@ -48,18 +48,16 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(LoginActivity.this, OwnerMainActivity.class);
                     startActivity(intent);
 
-                    // Optional: close the login page so user can’t go back
                     finish();
 
-                } else if (email.equals("user@email.com") && password.equals("1234")) {
+                } else if (email.equals("user@someemail.com") && password.equals("1234")) {
                     Toast.makeText(LoginActivity.this,
                             "Login Successful!", Toast.LENGTH_SHORT).show();
 
                     // Move to another page
-                    Intent intent = new Intent(LoginActivity.this, OwnerMainActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, SearchActivity.class);
                     startActivity(intent);
 
-                    // Optional: close the login page so user can’t go back
                     finish();
 
                 } else {

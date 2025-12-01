@@ -72,7 +72,7 @@ public class OwnerMainActivity extends AppCompatActivity {
         ProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(OwnerMainActivity.this, ProfileActivity.class);
+                Intent intent = new Intent(OwnerMainActivity.this, ProfileOwnerActivity.class);
                 startActivity(intent);
             }
         });
