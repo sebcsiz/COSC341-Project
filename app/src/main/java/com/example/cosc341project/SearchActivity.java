@@ -1,9 +1,11 @@
 package com.example.cosc341project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -14,9 +16,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.cosc341project.ui.CompareToursActivity;
+
 public class SearchActivity extends AppCompatActivity {
 
-    //Initiating variables
+    //INITIATING VARIABLES
     ListView listView; //import ListView class
     SearchView searchView; //import SearchView class
     ArrayAdapter<String> arrayAdapter;//import ArrayAdapter class
@@ -32,6 +36,7 @@ public class SearchActivity extends AppCompatActivity {
             "St. Hubertus & Oak Bay Estate Winery", "Stag’s Hollow Winery", "Stoneboat Vineyards", "Sumac Ridge Estate Winery", "Summerhill Pyramid Winery", "Synchromesh Wines", "Tantalus Vineyards", "Terravista Vineyards", "The Vibrant Vine Winery", "Therapy Vineyards", "Thornhaven Estates Winery",
             "Three Sisters Winery", "TIME Family of Wines", "Tinhorn Creek Vineyards", "Township 7 Vineyards", "Van Western Vineyards", "Wild Goose Vineyards & Winery", "Winemaker’s Cut"};
 
+    Button compareButton, bookButton, homeButton, myToursButton, profileButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +51,7 @@ public class SearchActivity extends AppCompatActivity {
 
         //SETTING UP SEARCHVIEW AND LISTVIEW
 
-        //getting refernce to the WinerySearchListView and WineryNameSearchView
+        //getting reference to the WinerySearchListView and WineryNameSearchView
         listView = findViewById(R.id.WinerySearchListView);
         searchView = findViewById(R.id.WineryNameSearchView);
 
@@ -88,6 +93,61 @@ public class SearchActivity extends AppCompatActivity {
         });
 
         //DONE SETTING UP SEARCHVIEW AND LISTVIEW
+
+        //DEALING WITH BUTTONS
+
+        //getting reference to the buttons
+        compareButton = findViewById(R.id.CompareButton);
+        bookButton = findViewById(R.id.BookButton);
+        homeButton = findViewById(R.id.SearchHomeButton);
+        myToursButton = findViewById(R.id.SearchMyToursButton);
+        profileButton = findViewById(R.id.ProfileButton);
+
+        //setting up onClick listeners for buttons
+        compareButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                // Create Intent to start CompareToursActivity
+                Intent compareIntent = new Intent(SearchActivity.this, CompareToursActivity.class); //import Intent class, import CompareToursActivity class
+                startActivity(compareIntent); //starting the new activity
+            }//end onClick
+        });//end compareButton listener
+
+        bookButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // Create Intent to start ????Activity
+                Intent bookIntent = new Intent(SearchActivity.this, SearchActivity.class); //import Intent class (swap SearchActivity.class with ????Activity)
+                startActivity(bookIntent); //starting the new activity
+            } //end onClick
+        });//end bookButton listener
+
+        homeButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // Create Intent to start ????Activity
+                Intent homeIntent = new Intent(SearchActivity.this, SearchActivity.class); //import Intent class (swap SearchActivity.class with ????Activity)
+                startActivity(homeIntent); //starting the new activity
+            } //end onClick
+        });//end homeButton listener
+
+        myToursButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // Create Intent to start ????Activity
+                Intent myToursIntent = new Intent(SearchActivity.this, SearchActivity.class); //import Intent class (swap SearchActivity.class with ????Activity)
+                startActivity(myToursIntent); //starting the new activity
+            } //end onClick
+        });//end myToursButton listener
+
+        myToursButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // Create Intent to start ProfileActivity
+                Intent profileIntent = new Intent(SearchActivity.this, ProfileActivity.class); //import Intent class
+                startActivity(profileIntent); //starting the new activity
+            } //end onClick
+        });//end myToursButton listener
 
     }//end onCreate
 

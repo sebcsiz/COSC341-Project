@@ -34,8 +34,9 @@
         android:id="@+id/CompareButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
         android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:onClick="open_compare"
         android:text="@string/compare"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/WineryNameSearchView" />
@@ -46,6 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="25dp"
+        android:onClick="open_book"
         android:text="@string/book"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/WineryNameSearchView" />
@@ -54,8 +56,9 @@
         android:id="@+id/SearchHomeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
         android:layout_marginStart="25dp"
+        android:layout_marginBottom="25dp"
+        android:onClick="open_home"
         android:text="@string/home"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -65,6 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="25dp"
+        android:onClick="open_myTours"
         android:text="@string/myTours"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/ProfileButton"
@@ -74,8 +78,9 @@
         android:id="@+id/ProfileButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
         android:layout_marginEnd="25dp"
+        android:layout_marginBottom="25dp"
+        android:onClick="open_profile"
         android:text="@string/profile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
