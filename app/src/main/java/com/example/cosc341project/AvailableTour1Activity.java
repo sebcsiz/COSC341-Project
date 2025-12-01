@@ -81,6 +81,18 @@ public class AvailableTour1Activity extends AppCompatActivity {
             } //end onClick
         });//end bookButton listener
 
-
     }//end onCreate
+
+    /* Layout IDs
+     * TextView for the winery name: WineryNameTextView
+     * ImageView for the available tour image: AvailableTourImageView
+     * TextView for tour details header: MoreDetailsTextView
+     * TextView for the paragraph of the tour details: MoreParagraphDetailsTextView
+     * Button to go back to the winery info page that they user just come from: ackToWineryInfoButton
+     * Button to book a tour: BookTourButton
+     * Button to access the home page: SearchHomeButton
+     * Button for user to check their upcoming and previous tours: SearchMyToursButton
+     * Button to access profile page: ProfileButton
+     */
+
 }//end AvailableTour1Activity
