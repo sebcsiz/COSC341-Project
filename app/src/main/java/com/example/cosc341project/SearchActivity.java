@@ -92,6 +92,19 @@ public class SearchActivity extends AppCompatActivity {
             }//end onQueryTextChange
         });
 
+        //setting up a listener to open up winery info page when a winery is selected
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+                //getting selected item's value (no necessary for this example)
+                //String selectedItem = (String) parent.getItemAtPosition(position);
+
+                //creating an intent to start WineryInfoActivity
+                Intent wineryInfoIntent = new Intent (SearchActivity.this, WineryInfoActivity.class);
+                startActivity(wineryInfoIntent); //start the new activity
+            }
+        });//end listView listener
+
         //DONE SETTING UP SEARCHVIEW AND LISTVIEW
 
         //DEALING WITH BUTTONS
