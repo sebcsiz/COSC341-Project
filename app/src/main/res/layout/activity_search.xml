@@ -50,36 +50,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/WineryNameSearchView" />
 
-    <Button
-        android:id="@+id/SearchHomeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginBottom="25dp"
-        android:text="@string/home"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/SearchMyToursButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
-        android:text="@string/myTours"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ProfileButton"
-        app:layout_constraintStart_toEndOf="@+id/SearchHomeButton" />
-
-    <Button
-        android:id="@+id/ProfileButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="25dp"
-        android:text="@string/profile"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <ListView
         android:id="@+id/WinerySearchListView"
         android:layout_width="350dp"
@@ -90,6 +60,39 @@
         app:layout_constraintTop_toBottomOf="@+id/WineryNameSearchView"
         android:background="@android:color/white"
         android:visibility="gone"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="#D3D3D3"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+        android:id="@+id/SearchHomeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:text="@string/home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/SearchMyToursButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/myTours"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ProfileButton"
+        app:layout_constraintStart_toEndOf="@+id/SearchHomeButton" />
+
+    <Button
+        android:id="@+id/ProfileButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:text="@string/profile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
