@@ -1,9 +1,11 @@
 package com.example.cosc341project;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,8 +16,9 @@ import androidx.core.view.WindowInsetsCompat;
 public class WineryInfoActivity extends AppCompatActivity {
 
     //INITIATING VARIABLES
-
     Button homeButton, myToursButton, profileButton;
+
+    ImageButton facebookButton, instagramButton, xButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +63,49 @@ public class WineryInfoActivity extends AppCompatActivity {
                 startActivity(profileIntent); //starting the new activity
             } //end onClick
         });//end profileButton listener
+
+        //DEALING WITH IMAGEBUTTONS
+        //getting reference to the buttons
+        facebookButton = findViewById(R.id.FacebookButton);
+        instagramButton = findViewById(R.id.InstagramButton);
+        xButton = findViewById(R.id.XButton);
+
+        //setting up onClick listeners for ImageButtons
+        facebookButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View view){
+                //URL as string
+                String url = "https://www.facebook.com/login/";
+                //Creating an intent with ACTION_VIEW and pass url
+                Intent facebookIntent = new Intent (Intent.ACTION_VIEW);
+                facebookIntent.setData(Uri.parse(url));
+                startActivity(facebookIntent); //open link
+            }
+        });//end instagramButton listener
+
+        instagramButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View view){
+                //URL as string
+                String url = "https://www.instagram.com/accounts/login/?hl=en";
+                //Creating an intent with ACTION_VIEW and pass url
+                Intent instagramIntent = new Intent (Intent.ACTION_VIEW);
+                instagramIntent.setData(Uri.parse(url));
+                startActivity(instagramIntent); //open link
+            }
+        });//end instagramButton listener
+
+        xButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View view){
+                //URL as string
+                String url = "https://x.com/i/flow/login?lang=es%20target%3D";
+                //Creating an intent with ACTION_VIEW and pass url
+                Intent xIntent = new Intent (Intent.ACTION_VIEW);
+                xIntent.setData(Uri.parse(url));
+                startActivity(xIntent); //open link
+            }
+        });//end xButton listener
 
     }//end onCreate
 
