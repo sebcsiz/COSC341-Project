@@ -16,7 +16,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class WineryInfoActivity extends AppCompatActivity {
 
     //INITIATING VARIABLES
-    Button homeButton, myToursButton, profileButton;
+    Button homeButton, myToursButton, profileButton, aTourButton, bTourButton, cTourButton, dTourButton, eTourButton, bookTourButton;
 
     ImageButton facebookButton, instagramButton, xButton;
 
@@ -35,6 +35,12 @@ public class WineryInfoActivity extends AppCompatActivity {
         homeButton = findViewById(R.id.SearchHomeButton);
         myToursButton = findViewById(R.id.SearchMyToursButton);
         profileButton = findViewById(R.id.ProfileButton);
+        aTourButton = findViewById(R.id.A_TourButton);
+        bTourButton = findViewById(R.id.B_TourButton);
+        cTourButton = findViewById(R.id.C_TourButton);
+        dTourButton = findViewById(R.id.D_TourButton);
+        eTourButton = findViewById(R.id.E_TourButton);
+        bookTourButton = findViewById(R.id.BookTourButton);
 
         //setting up onClick listeners for buttons
         homeButton.setOnClickListener(new View.OnClickListener(){
@@ -63,6 +69,60 @@ public class WineryInfoActivity extends AppCompatActivity {
                 startActivity(profileIntent); //starting the new activity
             } //end onClick
         });//end profileButton listener
+
+        aTourButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // Create Intent to start AvailableTour1Activity
+                Intent aTourIntent = new Intent(WineryInfoActivity.this, AvailableTour1Activity.class);
+                startActivity(aTourIntent); //starting the new activity
+            } //end onClick
+        });//end aTourButton listener
+
+        bTourButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // Create Intent to start AvailableTour2Activity
+                Intent bTourIntent = new Intent(WineryInfoActivity.this, AvailableTour2Activity.class);
+                startActivity(bTourIntent); //starting the new activity
+            } //end onClick
+        });//end bTourButton listener
+
+        cTourButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // Create Intent to start AvailableTour3Activity
+                Intent cTourIntent = new Intent(WineryInfoActivity.this, AvailableTour3Activity.class);
+                startActivity(cTourIntent); //starting the new activity
+            } //end onClick
+        });//end cTourButton listener
+
+        dTourButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // Create Intent to start AvailableTour4Activity
+                Intent dTourIntent = new Intent(WineryInfoActivity.this, AvailableTour4Activity.class);
+                startActivity(dTourIntent); //starting the new activity
+            } //end onClick
+        });//end dTourButton listener
+
+        eTourButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // Create Intent to start AvailableTour5Activity
+                Intent eTourIntent = new Intent(WineryInfoActivity.this, AvailableTour5Activity.class);
+                startActivity(eTourIntent); //starting the new activity
+            } //end onClick
+        });//end eTourButton listener
+
+        bookTourButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // Create Intent to start ????Activity
+                Intent bookTourIntent = new Intent(WineryInfoActivity.this, SearchActivity.class); //import Intent class (swap SearchActivity.class with ????Activity.class)
+                startActivity(bookTourIntent); //starting the new activity
+            } //end onClick
+        });//end bookTourButton listener
 
         //DEALING WITH IMAGEBUTTONS
         //getting reference to the buttons
