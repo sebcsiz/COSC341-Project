@@ -165,7 +165,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/indigenous_world"
+                android:src="@drawable/ic_launcher_background"
                 android:background="#DDDDDD"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="8dp" />

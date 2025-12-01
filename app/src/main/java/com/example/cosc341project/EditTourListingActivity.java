@@ -2,9 +2,7 @@ package com.example.cosc341project;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,8 +18,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class EditTourListingActivity extends AppCompatActivity {
-
-    private static final int REQUEST_PICK_IMAGE = 100;
 
     private Spinner spStatus;
     private EditText etTitle;
@@ -48,7 +44,7 @@ public class EditTourListingActivity extends AppCompatActivity {
     // Data for this listing
     private int position = -1;          // which listing (-1 = new)
     private String awardsText = "";     // "Award 1, Award 2"
-    private String photoUri = "";       // URI string for selected image
+    private int photoResId = 0;         // drawable resource id (0 = none)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,14 +78,13 @@ public class EditTourListingActivity extends AppCompatActivity {
         String incomingTitle = getIntent().getStringExtra("title");
         String incomingDescription = getIntent().getStringExtra("description");
         awardsText = getIntent().getStringExtra("awardsText");
-        photoUri = getIntent().getStringExtra("photoUri");
+        photoResId = getIntent().getIntExtra("photoResId", 0);
 
         String incomingPrice = getIntent().getStringExtra("price");
         String incomingDuration = getIntent().getStringExtra("duration");
         String incomingCapacity = getIntent().getStringExtra("capacity");
 
         if (awardsText == null) awardsText = "";
-        if (photoUri == null) photoUri = "";
         if (incomingPrice == null) incomingPrice = "";
         if (incomingDuration == null) incomingDuration = "";
         if (incomingCapacity == null) incomingCapacity = "";
@@ -114,9 +109,12 @@ public class EditTourListingActivity extends AppCompatActivity {
             tvAwardsList.setText(awardsText);
         }
 
-        // Show existing photo
-        if (!photoUri.isEmpty()) {
-            ivPhotoPreview.setImageURI(Uri.parse(photoUri));
+        // Show existing photo if there is one
+        if (photoResId != 0) {
+            ivPhotoPreview.setImageResource(photoResId);
+            ivPhotoPreview.setVisibility(ImageView.VISIBLE);
+        } else {
+            ivPhotoPreview.setVisibility(ImageView.GONE);
         }
 
         setupStatusSpinner();
@@ -137,16 +135,13 @@ public class EditTourListingActivity extends AppCompatActivity {
     }
 
     private void setupButtons() {
-        // Add / change photo
-        btnAddPhoto.setOnClickListener(v -> {
-            Intent pickIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            startActivityForResult(pickIntent, REQUEST_PICK_IMAGE);
-        });
+        // Choose from preset photos instead of gallery
+        btnAddPhoto.setOnClickListener(v -> showPhotoChoiceDialog());
 
         // Remove photo
         btnRemovePhoto.setOnClickListener(v -> {
-            photoUri = "";
-            ivPhotoPreview.setImageResource(R.drawable.ic_launcher_background);
+            photoResId = 0;
+            ivPhotoPreview.setVisibility(ImageView.GONE);
             Toast.makeText(this, "Photo removed.", Toast.LENGTH_SHORT).show();
         });
 
@@ -181,7 +176,7 @@ public class EditTourListingActivity extends AppCompatActivity {
             result.putExtra("title", title);
             result.putExtra("description", description);
             result.putExtra("awardsText", awardsText);
-            result.putExtra("photoUri", photoUri);
+            result.putExtra("photoResId", photoResId);   // IMPORTANT
             result.putExtra("price", price);
             result.putExtra("duration", duration);
             result.putExtra("capacity", capacity);
@@ -204,7 +199,40 @@ public class EditTourListingActivity extends AppCompatActivity {
         });
     }
 
-    // Let user type an award name → append to awardsText and refresh the awards TextView
+    private void showPhotoChoiceDialog() {
+        // Labels for user to see
+        final String[] options = {
+                "Indigenous World",
+                "Lakeside Cellars",
+                "Mission Hill",
+                "No photo"
+        };
+
+        // Matching drawable ids (change names to your actual drawables)
+        final int[] drawables = {
+                R.drawable.indigenous_world,  // vineyard
+                R.drawable.lakeside_cellars,  // bottles
+                R.drawable.mission_hill,  // cellar
+                0                            // no photo
+        };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Choose a photo");
+        builder.setItems(options, (dialog, which) -> {
+            photoResId = drawables[which];
+
+            if (photoResId != 0) {
+                ivPhotoPreview.setImageResource(photoResId);
+                ivPhotoPreview.setVisibility(ImageView.VISIBLE);
+                Toast.makeText(this, "Photo set: " + options[which], Toast.LENGTH_SHORT).show();
+            } else {
+                ivPhotoPreview.setVisibility(ImageView.GONE);
+                Toast.makeText(this, "No photo selected", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.show();
+    }
+
     private void showAwardInputDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Add award name");
@@ -231,21 +259,6 @@ public class EditTourListingActivity extends AppCompatActivity {
 
         builder.setNegativeButton("Cancel", null);
         builder.show();
-    }
-
-    // Handle photo picked from gallery
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == REQUEST_PICK_IMAGE && resultCode == RESULT_OK && data != null) {
-            Uri selected = data.getData();
-            if (selected != null) {
-                photoUri = selected.toString();
-                ivPhotoPreview.setImageURI(selected);
-                Toast.makeText(this, "Photo selected.", Toast.LENGTH_SHORT).show();
-            }
-        }
     }
 
     private void setupBottomNav() {
