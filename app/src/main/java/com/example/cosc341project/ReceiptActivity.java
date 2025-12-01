@@ -144,4 +144,8 @@ public class ReceiptActivity extends AppCompatActivity {
         Intent intent = new Intent(ReceiptActivity.this, ProfileActivity.class);
         startActivity(intent);
     }
+    public void onClickGoToSearch(View view) {
+        Intent intent = new Intent(ReceiptActivity.this, SearchActivity.class);
+        startActivity(intent);
+    }
 }

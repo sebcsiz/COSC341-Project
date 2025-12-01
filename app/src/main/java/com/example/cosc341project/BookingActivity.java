@@ -274,6 +274,7 @@ public class BookingActivity extends AppCompatActivity {
         intent.putExtra("partySize", partySpinner.getSelectedItem().toString());
         intent.putExtra("date", dateStr);
         intent.putExtra("time", timeStr);
+        intent.putExtra("price", tour.getPrice());
 
         Toast.makeText(this, "All inputs look good! Proceeding to payment...", Toast.LENGTH_SHORT).show();
         startActivity(intent);
@@ -281,6 +282,10 @@ public class BookingActivity extends AppCompatActivity {
 
     public void onClickGoToProfile(View view) {
         Intent intent = new Intent(BookingActivity.this, ProfileActivity.class);
+        startActivity(intent);
+    }
+    public void onClickGoToSearch(View view) {
+        Intent intent = new Intent(BookingActivity.this, SearchActivity.class);
         startActivity(intent);
     }
 
