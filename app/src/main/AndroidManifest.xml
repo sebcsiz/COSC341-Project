@@ -66,6 +66,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--to change the launcher activity to SearchActivity use commented code below and remove lines 34-37 and 60-68 (I believe those are the right lines to remove)-->
+        <!-- <activity
+                android:name=".MainActivity"
+                android:exported="false" />
+            <activity
+                android:name=".SearchActivity"
+                android:exported="true">
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
+            </activity> -->
+
     </application>
 
 </manifest>
