@@ -35,4 +35,8 @@
     <string name="Location">1234 Wine Rd
         \n Kelowna, BC</string>
 
+    <string name="TourDetails">Tour Details</string>
+    <string name="TourDetailsParagraph">Lots and lots of detail on this tour option. What type of wines will be tasted, what you will see/do, etc.</string>
+    <string name="BackToWineryInfoPage">Back To the Winery Page</string>
+
 </resources>
