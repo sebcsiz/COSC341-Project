@@ -278,7 +278,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="My Listings"
+            android:text="My Tours"
             android:backgroundTint="#6A4BBC"
             android:textColor="#FFFFFF"
             android:layout_marginEnd="8dp" />
