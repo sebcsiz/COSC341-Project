@@ -14,12 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.COSC341Project">
         <activity
+            android:name=".AvailableTour1Activity"
+            android:exported="false" />
+        <activity
             android:name=".WineryInfoActivity"
             android:exported="false" />
         <activity
             android:name=".SearchActivity"
-            android:exported="false" />
-        <!--android:name=".ui.CompareToursActivity"--><!--This line was originally under android:name=".SearchActivity", was causing an error so I removed it-->
+            android:exported="false" /> <!-- android:name=".ui.CompareToursActivity" -->
+        <!-- This line was originally under android:name=".SearchActivity", was causing an error so I removed it -->
         <activity
             android:name=".ui.SelectToursActivity"
             android:exported="false" />
@@ -34,16 +37,14 @@
             android:exported="true" />
         <activity
             android:name=".BookingActivity"
-            android:exported="true" />
-<!--        <activity-->
-<!--            android:name=".LoginActivity"-->
-<!--            android:exported="true">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
+            android:exported="true" /> <!-- <activity -->
+        <!-- android:name=".LoginActivity" -->
+        <!-- android:exported="true"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
         <activity
             android:name=".MainActivity"
             android:exported="true">

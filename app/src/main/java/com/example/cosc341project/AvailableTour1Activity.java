@@ -1,0 +1,86 @@
+package com.example.cosc341project;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class AvailableTour1Activity extends AppCompatActivity {
+
+    //INITIATING VARIABLES
+    Button homeButton, myToursButton, profileButton, toWineryInfoButton, bookButton;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_available_tour1);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        //DEALING WITH BUTTONS
+        //getting reference to the buttons
+        homeButton = findViewById(R.id.SearchHomeButton);
+        myToursButton = findViewById(R.id.SearchMyToursButton);
+        profileButton = findViewById(R.id.ProfileButton);
+        toWineryInfoButton = findViewById(R.id.BackToWineryInfoButton);
+        bookButton = findViewById(R.id.BookTourButton);
+
+        //setting up onClick listeners for buttons
+        homeButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // Create Intent to start ????Activity
+                Intent homeIntent = new Intent(AvailableTour1Activity.this, SearchActivity.class); //import Intent class (swap SearchActivity.class with ????Activity)
+                startActivity(homeIntent); //starting the new activity
+            } //end onClick
+        });//end homeButton listener
+
+        myToursButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // Create Intent to start ????Activity
+                Intent myToursIntent = new Intent(AvailableTour1Activity.this, SearchActivity.class); //import Intent class (swap SearchActivity.class with ????Activity)
+                startActivity(myToursIntent); //starting the new activity
+            } //end onClick
+        });//end myToursButton listener
+
+        profileButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // Create Intent to start ProfileActivity
+                Intent profileIntent = new Intent(AvailableTour1Activity.this, ProfileActivity.class); //import Intent class
+                startActivity(profileIntent); //starting the new activity
+            } //end onClick
+        });//end profileButton listener
+
+        toWineryInfoButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // Create Intent to start WineryInfoActivity
+                Intent toWineryInfoIntent = new Intent(AvailableTour1Activity.this, WineryInfoActivity.class);
+                startActivity(toWineryInfoIntent); //starting the new activity
+            } //end onClick
+        });//end toWineryInfoButton listener
+
+        bookButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // Create Intent to start ????Activity
+                Intent bookIntent = new Intent(AvailableTour1Activity.this, SearchActivity.class); //import Intent class (swap SearchActivity.class with ????Activity)
+                startActivity(bookIntent); //starting the new activity
+            } //end onClick
+        });//end bookButton listener
+
+
+    }//end onCreate
+}//end AvailableTour1Activity
