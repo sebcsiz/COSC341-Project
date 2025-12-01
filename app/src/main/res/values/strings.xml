@@ -13,8 +13,9 @@
 
     <string name="WineryName">Winery Name</string>
     <string name="Image">Image</string>
+    <string name="Images">Images</string>
     <string name="WineryDetails">Details:</string>
-    <string name="WineryDetailsParagraph">Here users can find details about the winery. There may be details about how the winery started, how long it has been operating, or the winery's mission statement (etc.). </string>
+    <string name="WineryDetailsParagraph">Here users can find details about the winery. There may be details about how the winery started, how long it has been operating, or the winery mission statement (etc.). </string>
     <string name="WineryAwards">Awards:</string>
     <string name="WineryAwardsParagraph">Here users can see a list of awards that the winery has acquired.
         \n Best Wine of 2019
@@ -30,5 +31,8 @@
     <string name="Facebook">Visit FaceBook</string>
     <string name="X">Visit X</string>
     <string name="Instagram">Visit Instagram</string>
+    <string name="LocationHeader">Location</string>
+    <string name="Location">1234 Wine Rd
+        \n Kelowna, BC</string>
 
 </resources>
