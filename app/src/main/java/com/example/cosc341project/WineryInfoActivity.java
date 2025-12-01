@@ -46,8 +46,8 @@ public class WineryInfoActivity extends AppCompatActivity {
         homeButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                // Create Intent to start ????Activity
-                Intent homeIntent = new Intent(WineryInfoActivity.this, SearchActivity.class); //import Intent class (swap SearchActivity.class with ????Activity)
+                // Create Intent to start SearchActivity
+                Intent homeIntent = new Intent(WineryInfoActivity.this, SearchActivity.class); //import Intent class
                 startActivity(homeIntent); //starting the new activity
             } //end onClick
         });//end homeButton listener
@@ -56,7 +56,7 @@ public class WineryInfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Create Intent to start ????Activity
-                Intent myToursIntent = new Intent(WineryInfoActivity.this, SearchActivity.class); //import Intent class (swap SearchActivity.class with ????Activity)
+                Intent myToursIntent = new Intent(WineryInfoActivity.this, SearchActivity.class); //(swap SearchActivity.class with ????Activity.class)
                 startActivity(myToursIntent); //starting the new activity
             } //end onClick
         });//end myToursButton listener
@@ -65,7 +65,7 @@ public class WineryInfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Create Intent to start ProfileActivity
-                Intent profileIntent = new Intent(WineryInfoActivity.this, ProfileActivity.class); //import Intent class
+                Intent profileIntent = new Intent(WineryInfoActivity.this, ProfileActivity.class); //check????
                 startActivity(profileIntent); //starting the new activity
             } //end onClick
         });//end profileButton listener
@@ -119,7 +119,7 @@ public class WineryInfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Create Intent to start ????Activity
-                Intent bookTourIntent = new Intent(WineryInfoActivity.this, SearchActivity.class); //import Intent class (swap SearchActivity.class with ????Activity.class)
+                Intent bookTourIntent = new Intent(WineryInfoActivity.this, SearchActivity.class); //(swap SearchActivity.class with ????Activity.class)
                 startActivity(bookTourIntent); //starting the new activity
             } //end onClick
         });//end bookTourButton listener

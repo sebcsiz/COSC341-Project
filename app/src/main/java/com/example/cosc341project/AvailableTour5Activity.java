@@ -39,8 +39,8 @@ public class AvailableTour5Activity extends AppCompatActivity {
         homeButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                // Create Intent to start ????Activity
-                Intent homeIntent = new Intent(AvailableTour5Activity.this, SearchActivity.class); //import Intent class (swap SearchActivity.class with ????Activity)
+                // Create Intent to start SearchActivity
+                Intent homeIntent = new Intent(AvailableTour5Activity.this, SearchActivity.class); //import Intent class
                 startActivity(homeIntent); //starting the new activity
             } //end onClick
         });//end homeButton listener
@@ -49,7 +49,7 @@ public class AvailableTour5Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Create Intent to start ????Activity
-                Intent myToursIntent = new Intent(AvailableTour5Activity.this, SearchActivity.class); //import Intent class (swap SearchActivity.class with ????Activity)
+                Intent myToursIntent = new Intent(AvailableTour5Activity.this, SearchActivity.class); //(swap SearchActivity.class with ????Activity.class)
                 startActivity(myToursIntent); //starting the new activity
             } //end onClick
         });//end myToursButton listener
@@ -58,7 +58,7 @@ public class AvailableTour5Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Create Intent to start ProfileActivity
-                Intent profileIntent = new Intent(AvailableTour5Activity.this, ProfileActivity.class); //import Intent class
+                Intent profileIntent = new Intent(AvailableTour5Activity.this, ProfileActivity.class); //check????
                 startActivity(profileIntent); //starting the new activity
             } //end onClick
         });//end profileButton listener
@@ -76,7 +76,7 @@ public class AvailableTour5Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Create Intent to start ????Activity
-                Intent bookIntent = new Intent(AvailableTour5Activity.this, SearchActivity.class); //import Intent class (swap SearchActivity.class with ????Activity)
+                Intent bookIntent = new Intent(AvailableTour5Activity.this, SearchActivity.class); //(swap SearchActivity.class with ????Activity.class)
                 startActivity(bookIntent); //starting the new activity
             } //end onClick
         });//end bookButton listener
