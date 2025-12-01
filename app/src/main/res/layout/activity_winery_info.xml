@@ -28,6 +28,7 @@
             android:id="@+id/WineryImageView"
             android:layout_width="400dp"
             android:layout_height="200dp"
+            android:contentDescription="@string/Image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/WineryNameTextView"
@@ -86,6 +87,233 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/WineryAwardsTextView" />
+
+        <HorizontalScrollView
+            android:id="@+id/TourScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:fillViewport="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/WineryAvailableToursTextView">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/A_TourImageView"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:contentDescription="@string/Image"
+                        android:scaleType="centerInside"
+                        app:layout_constraintTop_toBottomOf="@+id/WineryNameTextView"
+                        app:srcCompat="@drawable/img_a" />
+
+                    <TextView
+                        android:id="@+id/A_TourTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="@string/A_Tour"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/A_TourButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_margin="5dp"
+                        android:text="@string/TourInfoButton" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/B_TourImageView"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:contentDescription="@string/Image"
+                        android:scaleType="centerInside"
+                        app:layout_constraintTop_toBottomOf="@+id/WineryNameTextView"
+                        app:srcCompat="@drawable/img_b" />
+
+                    <TextView
+                        android:id="@+id/B_TourTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="@string/B_Tour"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/B_TourButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_margin="5dp"
+                        android:text="@string/TourInfoButton" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/C_TourImageView"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:contentDescription="@string/Image"
+                        android:scaleType="centerInside"
+                        app:layout_constraintTop_toBottomOf="@+id/WineryNameTextView"
+                        app:srcCompat="@drawable/img_c" />
+
+                    <TextView
+                        android:id="@+id/C_TourTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="@string/C_Tour"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/C_TourButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_margin="5dp"
+                        android:text="@string/TourInfoButton" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/D_TourImageView"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:contentDescription="@string/Image"
+                        android:scaleType="centerInside"
+                        app:layout_constraintTop_toBottomOf="@+id/WineryNameTextView"
+                        app:srcCompat="@drawable/img_d" />
+
+                    <TextView
+                        android:id="@+id/D_TourTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="@string/D_Tour"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/D_TourButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_margin="5dp"
+                        android:text="@string/TourInfoButton" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/E_TourImageView"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:contentDescription="@string/Image"
+                        android:scaleType="centerInside"
+                        app:layout_constraintTop_toBottomOf="@+id/WineryNameTextView"
+                        app:srcCompat="@drawable/img_e" />
+
+                    <TextView
+                        android:id="@+id/E_TourTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="@string/E_Tour"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/E_TourButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_margin="5dp"
+                        android:text="@string/TourInfoButton" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+
+        <TextView
+            android:id="@+id/ContactTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="@string/ContactWinery"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/TourScrollView" />
+
+
+        <ImageButton
+            android:id="@+id/FacebookButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="100dp"
+            android:contentDescription="@string/Facebook"
+            android:scaleType="centerInside"
+            android:src="@drawable/img_facebook"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ContactTextView" />
+
+        <ImageButton
+            android:id="@+id/InstagramButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/Instagram"
+            android:scaleType="centerInside"
+            android:src="@drawable/img_instagram"
+            app:layout_constraintEnd_toStartOf="@+id/XButton"
+            app:layout_constraintStart_toEndOf="@+id/FacebookButton"
+            app:layout_constraintTop_toBottomOf="@+id/ContactTextView" />
+
+        <ImageButton
+            android:id="@+id/XButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="100dp"
+            android:contentDescription="@string/X"
+            android:scaleType="centerInside"
+            android:src="@drawable/img_x"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ContactTextView" />
+
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

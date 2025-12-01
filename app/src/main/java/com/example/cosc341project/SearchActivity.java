@@ -140,14 +140,14 @@ public class SearchActivity extends AppCompatActivity {
             } //end onClick
         });//end myToursButton listener
 
-        myToursButton.setOnClickListener(new View.OnClickListener(){
+        profileButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 // Create Intent to start ProfileActivity
                 Intent profileIntent = new Intent(SearchActivity.this, ProfileActivity.class); //import Intent class
                 startActivity(profileIntent); //starting the new activity
             } //end onClick
-        });//end myToursButton listener
+        });//end profileButton listener
 
     }//end onCreate
 
