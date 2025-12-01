@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WineryInfoActivity">
+
+<ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
@@ -114,7 +120,6 @@
                         android:layout_margin="5dp"
                         android:contentDescription="@string/Image"
                         android:scaleType="centerInside"
-                        app:layout_constraintTop_toBottomOf="@+id/WineryNameTextView"
                         app:srcCompat="@drawable/img_a" />
 
                     <TextView
@@ -146,7 +151,6 @@
                         android:layout_margin="5dp"
                         android:contentDescription="@string/Image"
                         android:scaleType="centerInside"
-                        app:layout_constraintTop_toBottomOf="@+id/WineryNameTextView"
                         app:srcCompat="@drawable/img_b" />
 
                     <TextView
@@ -178,7 +182,6 @@
                         android:layout_margin="5dp"
                         android:contentDescription="@string/Image"
                         android:scaleType="centerInside"
-                        app:layout_constraintTop_toBottomOf="@+id/WineryNameTextView"
                         app:srcCompat="@drawable/img_c" />
 
                     <TextView
@@ -210,7 +213,6 @@
                         android:layout_margin="5dp"
                         android:contentDescription="@string/Image"
                         android:scaleType="centerInside"
-                        app:layout_constraintTop_toBottomOf="@+id/WineryNameTextView"
                         app:srcCompat="@drawable/img_d" />
 
                     <TextView
@@ -242,7 +244,6 @@
                         android:layout_margin="5dp"
                         android:contentDescription="@string/Image"
                         android:scaleType="centerInside"
-                        app:layout_constraintTop_toBottomOf="@+id/WineryNameTextView"
                         app:srcCompat="@drawable/img_e" />
 
                     <TextView
@@ -272,7 +273,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
             android:text="@string/ContactWinery"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -312,9 +313,147 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ContactTextView" />
 
+        <TextView
+            android:id="@+id/LocationHeaderTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="@string/LocationHeader"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/InstagramButton" />
 
+        <TextView
+            android:id="@+id/LocationTextView"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Location"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LocationHeaderTextView" />
 
+        <ImageView
+            android:id="@+id/MapImageView"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:contentDescription="@string/Image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/LocationTextView"
+            app:layout_constraintTop_toBottomOf="@+id/LocationHeaderTextView"
+            app:srcCompat="@drawable/img_map" />
 
+        <TextView
+            android:id="@+id/ImageTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="@string/Images"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/MapImageView" />
+
+        <HorizontalScrollView
+            android:id="@+id/ImageScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:fillViewport="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ImageTextView">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/WineImageView1"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:contentDescription="@string/Image"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/img_wine1" />
+
+                <ImageView
+                    android:id="@+id/WineImageView2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:contentDescription="@string/Image"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/img_wine2" />
+
+                <ImageView
+                    android:id="@+id/WineImageView3"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:contentDescription="@string/Image"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/img_wine3" />
+
+                <ImageView
+                    android:id="@+id/WineImageView4"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:contentDescription="@string/Image"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/img_wine4" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <Button
+            android:id="@+id/BookTourButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9dp"
+            android:text="@string/book"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ImageScrollView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="#D3D3D3"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+        android:id="@+id/SearchHomeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:text="@string/home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/SearchMyToursButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/myTours"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ProfileButton"
+        app:layout_constraintStart_toEndOf="@+id/SearchHomeButton" />
+
+    <Button
+        android:id="@+id/ProfileButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:text="@string/profile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
