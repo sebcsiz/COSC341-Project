@@ -3,6 +3,7 @@ package com.example.cosc341project.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -14,7 +15,9 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cosc341project.ProfileActivity;
 import com.example.cosc341project.R;
+import com.example.cosc341project.SearchActivity;
 import com.example.cosc341project.data.TourLoader;
 import com.example.cosc341project.model.Tour;
 
@@ -24,7 +27,7 @@ public class SelectToursActivity extends AppCompatActivity {
 
     private TourSelectAdapter adapter;
     RecyclerView rv;
-    Button searchBtn;
+    Button searchBtn, homeBtn, myToursBtn, profileBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,9 @@ public class SelectToursActivity extends AppCompatActivity {
 
         rv = findViewById(R.id.rvSelectTours);
         searchBtn = findViewById(R.id.btnSearch);
+        homeBtn = findViewById(R.id.SearchHomeButton);
+        myToursBtn = findViewById(R.id.SearchMyToursButton);
+        profileBtn = findViewById(R.id.ProfileButton);
 
         ArrayList<Tour> tourList = TourLoader.loadTours(this);
 
@@ -52,6 +58,33 @@ public class SelectToursActivity extends AppCompatActivity {
             Intent intent = new Intent(this, CompareToursActivity.class);
             intent.putExtra("tours", selected);
             startActivity(intent);
+        });
+
+        homeBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // Create Intent to start SearchActivity
+                Intent homeIntent = new Intent(SelectToursActivity.this, SearchActivity.class); //
+                startActivity(homeIntent); //starting the new activity
+            } //end onClick
+        });//end homeButton listener
+
+        myToursBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // Create Intent to start ????Activity
+                Intent myToursIntent = new Intent(SelectToursActivity.this, SearchActivity.class); //(swap SearchActivity.class with ????Activity.class)
+                startActivity(myToursIntent); //starting the new activity
+            } //end onClick
+        });//end myToursButton listener
+
+        profileBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // Create Intent to start ProfileActivity
+                Intent profileIntent = new Intent(SelectToursActivity.this, ProfileActivity.class); //check????
+                startActivity(profileIntent); //starting the new activity
+            } //end onClick
         });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {

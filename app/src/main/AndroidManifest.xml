@@ -39,6 +39,9 @@
             android:name=".ui.SelectToursActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.CompareToursActivity"
+            android:exported="false" />
+        <activity
             android:name=".ReceiptActivity"
             android:exported="false" />
         <activity
