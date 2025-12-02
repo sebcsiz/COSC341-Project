@@ -75,8 +75,8 @@ public class AvailableTour2Activity extends AppCompatActivity {
         bookButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                // Create Intent to start ????Activity
-                Intent bookIntent = new Intent(AvailableTour2Activity.this, SearchActivity.class); //(swap SearchActivity.class with ????Activity.class)
+                // Create Intent to start BookingActivity
+                Intent bookIntent = new Intent(AvailableTour2Activity.this, BookingActivity.class); //(swap SearchActivity.class with ????Activity.class)
                 startActivity(bookIntent); //starting the new activity
             } //end onClick
         });//end bookButton listener
