@@ -5,20 +5,20 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="16dp"
     app:cardCornerRadius="12dp"
-    app:cardElevation="3dp">
+    app:cardElevation="6dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Main photo for the listing -->
         <ImageView
             android:id="@+id/ivListingImage"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/indigenous_world" />
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_launcher_background" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,7 +42,6 @@
                 android:textSize="15sp"
                 android:layout_marginBottom="6dp" />
 
-            <!-- NEW: price, duration, capacity -->
             <TextView
                 android:id="@+id/tvListingPrice"
                 android:layout_width="wrap_content"
@@ -66,7 +65,6 @@
                 android:text="Capacity:"
                 android:textSize="14sp"
                 android:layout_marginBottom="8dp" />
-            <!-- END NEW -->
 
             <TextView
                 android:id="@+id/tvListingAwards"
