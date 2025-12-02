@@ -139,10 +139,9 @@ public class SearchActivity extends AppCompatActivity {
         myToursButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                // Create Intent to start ????Activity
-                Intent myToursIntent = new Intent(SearchActivity.this, SearchActivity.class); //(swap SearchActivity.class with ????Activity.class)
-                startActivity(myToursIntent); //starting the new activity
-            } //end onClick
+                Intent myToursIntent = new Intent(SearchActivity.this, MyToursActivity.class);
+                startActivity(myToursIntent);
+            }
         });//end myToursButton listener
 
         profileButton.setOnClickListener(new View.OnClickListener(){
