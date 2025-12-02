@@ -2,6 +2,7 @@ package com.example.cosc341project.ui;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -33,6 +34,15 @@ public class CompareToursActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ArrayList<Tour> tours = (ArrayList<Tour>) getIntent().getSerializableExtra("tours");
+
+        if (tours == null || tours.size() != 2) {
+            finish();
+            return;
+        }
+
+//        Log.d("COMPARE_DEBUG", "Intent keys: " + getIntent().getExtras());
+
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_compare_tours);
@@ -46,12 +56,11 @@ public class CompareToursActivity extends AppCompatActivity {
         backBtn = findViewById(R.id.btnBack);
         backBtn.setOnClickListener(v -> finish());
 
-
-        ArrayList<Tour> tours = (ArrayList<Tour>) getIntent().getSerializableExtra("tours");
-
         adapter = new TourCompareAdapter(tours);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(adapter);
+
+        updateSummary();
 
         sortBtn.setOnClickListener(v -> showSortDialog() );
 
