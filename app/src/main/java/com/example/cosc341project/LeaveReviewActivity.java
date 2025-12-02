@@ -43,10 +43,6 @@ public class LeaveReviewActivity extends AppCompatActivity {
 
         String finalTourName = tourName;
         btnSubmitReview.setOnClickListener(v -> {
-            // You could later save reviewText + ratingBar.getRating()
-            String reviewText = etReviewText.getText().toString().trim();
-            float rating = ratingBar.getRating();
-            // (not used yet, but ready if you need it)
 
             new AlertDialog.Builder(LeaveReviewActivity.this)
                     .setMessage(getString(R.string.review_confirmation, finalTourName))

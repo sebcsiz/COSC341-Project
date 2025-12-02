@@ -40,9 +40,8 @@ public class MyToursActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // My Tours -> we're already on this screen
+        // My Tours
         myToursButton.setOnClickListener(v -> {
-            // do nothing
         });
 
         // Profile -> open ProfileActivity
@@ -74,10 +73,6 @@ public class MyToursActivity extends AppCompatActivity {
             Context context = v.getContext();
             Intent intent = new Intent(context, LeaveReviewActivity.class);
 
-            // If you have a Tour object:
-            // intent.putExtra("TOUR_NAME", tour.getWineryName());
-
-            // For now you can hardcode:
             intent.putExtra("TOUR_NAME", "Mission Hill Family Estate");
 
             context.startActivity(intent);
