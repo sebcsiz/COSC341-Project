@@ -59,18 +59,6 @@ public class ProfileActivity extends AppCompatActivity {
                 finish();
             }
         });
-        MyToursButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                // Move to another page (My Tours page? Search activity page?)
-                Intent intent = new Intent(ProfileActivity.this, SearchActivity.class);
-                startActivity(intent);
-
-
-                finish();
-            }
-        });
         Profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,5 +70,9 @@ public class ProfileActivity extends AppCompatActivity {
     public void onClickGoToSearch(View view) {
         Intent intent = new Intent(ProfileActivity.this, SearchActivity.class);
         startActivity(intent);
+    }
+    public void onClickGoToMyTours(View view) {
+        Intent myToursIntent = new Intent(ProfileActivity.this, MyToursActivity.class);
+        startActivity(myToursIntent);
     }
 }
