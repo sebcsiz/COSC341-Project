@@ -119,7 +119,7 @@ public class WineryInfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Create Intent to start ????Activity
-                Intent bookTourIntent = new Intent(WineryInfoActivity.this, SearchActivity.class); //(swap SearchActivity.class with ????Activity.class)
+                Intent bookTourIntent = new Intent(WineryInfoActivity.this, BookingActivity.class); //(swap SearchActivity.class with ????Activity.class)
                 startActivity(bookTourIntent); //starting the new activity
             } //end onClick
         });//end bookTourButton listener

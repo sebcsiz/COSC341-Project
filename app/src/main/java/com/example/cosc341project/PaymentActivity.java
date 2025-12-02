@@ -228,4 +228,9 @@ public class PaymentActivity extends AppCompatActivity {
         Intent intent = new Intent(PaymentActivity.this, SearchActivity.class);
         startActivity(intent);
     }
+
+    public void onClickGoToMyTours(View view) {
+        Intent myToursIntent = new Intent(PaymentActivity.this, MyToursActivity.class);
+        startActivity(myToursIntent);
+    }
 }

@@ -148,4 +148,8 @@ public class ReceiptActivity extends AppCompatActivity {
         Intent intent = new Intent(ReceiptActivity.this, SearchActivity.class);
         startActivity(intent);
     }
+    public void onClickGoToMyTours(View view) {
+        Intent myToursIntent = new Intent(ReceiptActivity.this, MyToursActivity.class);
+        startActivity(myToursIntent);
+    }
 }

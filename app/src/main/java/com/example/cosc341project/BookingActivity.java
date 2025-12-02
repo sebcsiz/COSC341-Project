@@ -288,6 +288,11 @@ public class BookingActivity extends AppCompatActivity {
         Intent intent = new Intent(BookingActivity.this, SearchActivity.class);
         startActivity(intent);
     }
+    public void onClickGoToMyTours(View view) {
+        Intent myToursIntent = new Intent(BookingActivity.this, MyToursActivity.class);
+        startActivity(myToursIntent);
+    }
+
 
     /**
      * Convert a Tour.image string like "@drawable/quail_gate.png"

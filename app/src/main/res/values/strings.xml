@@ -39,4 +39,19 @@
     <string name="TourDetailsParagraph">Lots and lots of detail on this tour option. What type of wines will be tasted, what you will see/do, etc.</string>
     <string name="BackToWineryInfoPage">Back To the Winery Page</string>
 
+    <!-- My Tours Screen -->
+    <string name="your_tours_title">Your Tours</string>
+    <string name="tab_upcoming">Upcoming Tours</string>
+    <string name="tab_past">Past Tours</string>
+    <string name="empty_upcoming">You have no tours booked yet</string>
+    <string name="empty_past">You have no past tours yet</string>
+
+    <!-- Leave Review Screen -->
+    <string name="leave_review_for">Leave a Review for %1$s:</string>
+    <string name="review_hint">Type your review here...</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="submit_button">Submit</string>
+    <string name="review_confirmation">Your review of %1$s was submitted</string>
+    <string name="ok_button">OK</string>
+
 </resources>

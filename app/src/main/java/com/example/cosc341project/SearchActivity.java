@@ -37,7 +37,7 @@ public class SearchActivity extends AppCompatActivity {
             "St. Hubertus & Oak Bay Estate Winery", "Stag’s Hollow Winery", "Stoneboat Vineyards", "Sumac Ridge Estate Winery", "Summerhill Pyramid Winery", "Synchromesh Wines", "Tantalus Vineyards", "Terravista Vineyards", "The Vibrant Vine Winery", "Therapy Vineyards", "Thornhaven Estates Winery",
             "Three Sisters Winery", "TIME Family of Wines", "Tinhorn Creek Vineyards", "Township 7 Vineyards", "Van Western Vineyards", "Wild Goose Vineyards & Winery", "Winemaker’s Cut"};
 
-    Button compareButton, bookButton, homeButton, myToursButton, profileButton;
+    Button compareButton, homeButton, myToursButton, profileButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,12 +97,13 @@ public class SearchActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-                //getting selected item's value (no necessary for this example)
-                //String selectedItem = (String) parent.getItemAtPosition(position);
+                //getting selected item's value
+                String selectedItem = (String) parent.getItemAtPosition(position);
 
                 //creating an intent to start WineryInfoActivity
                 Intent wineryInfoIntent = new Intent (SearchActivity.this, WineryInfoActivity.class);
                 startActivity(wineryInfoIntent); //start the new activity
+                Toast.makeText(getApplicationContext(), "Opening " + selectedItem + "Info Page", Toast.LENGTH_SHORT).show();//show toast message about what is being opened
             }
         });//end listView listener
 
@@ -112,7 +113,6 @@ public class SearchActivity extends AppCompatActivity {
 
         //getting reference to the buttons
         compareButton = findViewById(R.id.CompareButton);
-        bookButton = findViewById(R.id.BookButton);
         homeButton = findViewById(R.id.SearchHomeButton);
         myToursButton = findViewById(R.id.SearchMyToursButton);
         profileButton = findViewById(R.id.ProfileButton);
@@ -127,15 +127,6 @@ public class SearchActivity extends AppCompatActivity {
             }//end onClick
         });//end compareButton listener
 
-        bookButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                // Create Intent to start ????Activity
-                Intent bookIntent = new Intent(SearchActivity.this, SearchActivity.class); //(swap SearchActivity.class with ????Activity.class)
-                startActivity(bookIntent); //starting the new activity
-            } //end onClick
-        });//end bookButton listener
-
         homeButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -148,10 +139,9 @@ public class SearchActivity extends AppCompatActivity {
         myToursButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                // Create Intent to start ????Activity
-                Intent myToursIntent = new Intent(SearchActivity.this, SearchActivity.class); //(swap SearchActivity.class with ????Activity.class)
-                startActivity(myToursIntent); //starting the new activity
-            } //end onClick
+                Intent myToursIntent = new Intent(SearchActivity.this, MyToursActivity.class);
+                startActivity(myToursIntent);
+            }
         });//end myToursButton listener
 
         profileButton.setOnClickListener(new View.OnClickListener(){
@@ -165,11 +155,24 @@ public class SearchActivity extends AppCompatActivity {
 
     }//end onCreate
 
+    public void handleOutsideClick(View view) {
+        // Clear focus from the SearchView
+        SearchView searchView = findViewById(R.id.WineryNameSearchView);
+        if (searchView != null) {
+            searchView.clearFocus(); // This will collapse the software keyboard
+        }
+
+        // Hide the ListView
+        ListView listView = findViewById(R.id.WinerySearchListView);
+        if (listView != null) {
+            listView.setVisibility(View.INVISIBLE); // or View.GONE
+        }
+    }
+
     /* Layout IDs
      * SearchView to search Wineries by name: WineryNameSearchView
      * ListView: WinerySearchListView
      * Button to access Compare Tours Page: CompareButton
-     * Button to book a tour: BookButton
      * Button to access the home page: SearchHomeButton
      * Button for user to check their upcoming and previous tours: SearchMyToursButton
      * Button to access profile page: ProfileButton

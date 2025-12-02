@@ -66,6 +66,12 @@
             android:name=".ProfileOwnerActivity"
             android:exported="true" />
 
+        <activity
+            android:name=".MyToursActivity"
+            android:exported="false" />
+
+        <activity android:name=".LeaveReviewActivity" />
+
          <activity
              android:name=".LoginActivity"
              android:exported="true">
