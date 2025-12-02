@@ -156,6 +156,20 @@ public class SearchActivity extends AppCompatActivity {
 
     }//end onCreate
 
+    public void handleOutsideClick(View view) {
+        // Clear focus from the SearchView
+        SearchView searchView = findViewById(R.id.WineryNameSearchView);
+        if (searchView != null) {
+            searchView.clearFocus(); // This will collapse the software keyboard
+        }
+
+        // Hide the ListView
+        ListView listView = findViewById(R.id.WinerySearchListView);
+        if (listView != null) {
+            listView.setVisibility(View.INVISIBLE); // or View.GONE
+        }
+    }
+
     /* Layout IDs
      * SearchView to search Wineries by name: WineryNameSearchView
      * ListView: WinerySearchListView
