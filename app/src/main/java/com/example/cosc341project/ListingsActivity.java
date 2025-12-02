@@ -21,7 +21,8 @@ public class ListingsActivity extends AppCompatActivity {
         String title;
         String description;
         String awardsText;
-        String photoUri;   // image URI as string
+
+        int photoResId;   // drawable resource id (0 means none)
 
         String price;
         String duration;
@@ -30,14 +31,14 @@ public class ListingsActivity extends AppCompatActivity {
         Listing(String title,
                 String description,
                 String awardsText,
-                String photoUri,
+                int photoResId,
                 String price,
                 String duration,
                 String capacity) {
             this.title = title;
             this.description = description;
             this.awardsText = awardsText;
-            this.photoUri = photoUri;
+            this.photoResId = photoResId;
             this.price = price;
             this.duration = duration;
             this.capacity = capacity;
@@ -67,8 +68,7 @@ public class ListingsActivity extends AppCompatActivity {
         ListingsButton = findViewById(R.id.ListingsButton);
         ProfileButton = findViewById(R.id.ProfileButton);
 
-        // If we were launched from OwnerMain with "startInCreateMode",
-        // immediately open a NEW listing editor (position = -1).
+        // If launched from OwnerMain in "create mode", open new listing editor immediately
         boolean startInCreateMode = getIntent().getBooleanExtra("startInCreateMode", false);
         if (startInCreateMode) {
             Intent intent = new Intent(ListingsActivity.this, EditTourListingActivity.class);
@@ -76,13 +76,12 @@ public class ListingsActivity extends AppCompatActivity {
             startActivityForResult(intent, REQUEST_EDIT_LISTING);
         }
 
-        // Render any existing listings
         renderListings();
 
-        // + Add listing → new listing from inside listings page
+        // + Add listing → new listing
         btnAddListing.setOnClickListener(v -> {
             Intent intent = new Intent(ListingsActivity.this, EditTourListingActivity.class);
-            intent.putExtra("position", -1); // new listing
+            intent.putExtra("position", -1);
             startActivityForResult(intent, REQUEST_EDIT_LISTING);
         });
 
@@ -123,7 +122,7 @@ public class ListingsActivity extends AppCompatActivity {
             String title = data.getStringExtra("title");
             String description = data.getStringExtra("description");
             String awardsText = data.getStringExtra("awardsText");
-            String photoUri = data.getStringExtra("photoUri");
+            int photoResId = data.getIntExtra("photoResId", 0);
 
             String price = data.getStringExtra("price");
             String duration = data.getStringExtra("duration");
@@ -132,7 +131,6 @@ public class ListingsActivity extends AppCompatActivity {
             if (title == null || title.isEmpty()) title = "New listing";
             if (description == null || description.isEmpty()) description = "No description provided";
             if (awardsText == null) awardsText = "";
-            if (photoUri == null) photoUri = "";
             if (price == null) price = "";
             if (duration == null) duration = "";
             if (capacity == null) capacity = "";
@@ -143,7 +141,7 @@ public class ListingsActivity extends AppCompatActivity {
                         title,
                         description,
                         awardsText,
-                        photoUri,
+                        photoResId,
                         price,
                         duration,
                         capacity
@@ -154,7 +152,7 @@ public class ListingsActivity extends AppCompatActivity {
                 l.title = title;
                 l.description = description;
                 l.awardsText = awardsText;
-                l.photoUri = photoUri;
+                l.photoResId = photoResId;
                 l.price = price;
                 l.duration = duration;
                 l.capacity = capacity;
@@ -213,9 +211,9 @@ public class ListingsActivity extends AppCompatActivity {
                 tvAwards.setText("Awards: " + listing.awardsText);
             }
 
-            // Set listing image
-            if (listing.photoUri != null && !listing.photoUri.isEmpty()) {
-                ivListingImage.setImageURI(Uri.parse(listing.photoUri));
+            // Use selected photo if available
+            if (listing.photoResId != 0) {
+                ivListingImage.setImageResource(listing.photoResId);
             } else {
                 ivListingImage.setImageResource(R.drawable.ic_launcher_background);
             }
@@ -227,7 +225,7 @@ public class ListingsActivity extends AppCompatActivity {
                 intent.putExtra("title", listing.title);
                 intent.putExtra("description", listing.description);
                 intent.putExtra("awardsText", listing.awardsText);
-                intent.putExtra("photoUri", listing.photoUri);
+                intent.putExtra("photoResId", listing.photoResId);
                 intent.putExtra("price", listing.price);
                 intent.putExtra("duration", listing.duration);
                 intent.putExtra("capacity", listing.capacity);

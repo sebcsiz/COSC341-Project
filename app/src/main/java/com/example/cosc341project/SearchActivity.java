@@ -17,6 +17,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.cosc341project.ui.CompareToursActivity;
+import com.example.cosc341project.ui.SelectToursActivity;
 
 public class SearchActivity extends AppCompatActivity {
 
@@ -121,7 +122,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 // Create Intent to start CompareToursActivity
-                Intent compareIntent = new Intent(SearchActivity.this, SearchActivity.class); //import Intent class (swap SearchActivity.class with ????Activity.class)
+                Intent compareIntent = new Intent(SearchActivity.this, SelectToursActivity.class); //import Intent class (swap SearchActivity.class with ????Activity.class)
                 startActivity(compareIntent); //starting the new activity
             }//end onClick
         });//end compareButton listener

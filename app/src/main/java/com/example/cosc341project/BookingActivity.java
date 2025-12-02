@@ -89,7 +89,7 @@ public class BookingActivity extends AppCompatActivity {
             tour = new Tour(
                     "TEST WINERY",
                     "Test description",
-                    "Test tasting",
+                    "Test tasting 1",
                     "123 Test St",
                     "(000) 000-0000",
                     "Test Driver",
@@ -98,7 +98,7 @@ public class BookingActivity extends AppCompatActivity {
                     100,
                     199.99,
                     "@drawable/quail_gate.png",
-                    java.util.Arrays.asList("Test Option 1", "Test Option 2")
+                    java.util.Arrays.asList("Test Option 2\n$199,99", "Test Option 3\n$199.99")
             );
         }
 
@@ -125,7 +125,7 @@ public class BookingActivity extends AppCompatActivity {
         // Main experience: tasting description + total tour price
         String mainExperience = tour.getTastingDescription();
         if (tour.getPrice() > 0) {
-            String priceText = String.format(Locale.CANADA, "Tour Price: $%.2f", tour.getPrice());
+            String priceText = String.format(Locale.CANADA, "$%.2f", tour.getPrice());
             mainExperience = mainExperience + "\n" + priceText;
         }
         experienceList.add(mainExperience);
@@ -274,6 +274,7 @@ public class BookingActivity extends AppCompatActivity {
         intent.putExtra("partySize", partySpinner.getSelectedItem().toString());
         intent.putExtra("date", dateStr);
         intent.putExtra("time", timeStr);
+        intent.putExtra("price", tour.getPrice());
 
         Toast.makeText(this, "All inputs look good! Proceeding to payment...", Toast.LENGTH_SHORT).show();
         startActivity(intent);
@@ -281,6 +282,10 @@ public class BookingActivity extends AppCompatActivity {
 
     public void onClickGoToProfile(View view) {
         Intent intent = new Intent(BookingActivity.this, ProfileActivity.class);
+        startActivity(intent);
+    }
+    public void onClickGoToSearch(View view) {
+        Intent intent = new Intent(BookingActivity.this, SearchActivity.class);
         startActivity(intent);
     }
 
