@@ -82,7 +82,7 @@ public class PaymentActivity extends AppCompatActivity {
                 fillCard("5555 5555 5555 8888", "Jane Smith", "08/26", "456"));
 
         cardAmex.setOnClickListener(v ->
-                fillCard("3782 822463 10005", "Alex Johnson", "05/28", "789"));
+                fillCard("3782 8222 9463 1005", "Alex Johnson", "05/28", "789"));
 
         // Back button
         backPayment.setOnClickListener(v -> onBackPressed());
