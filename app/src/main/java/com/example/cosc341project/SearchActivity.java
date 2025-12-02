@@ -37,7 +37,7 @@ public class SearchActivity extends AppCompatActivity {
             "St. Hubertus & Oak Bay Estate Winery", "Stag’s Hollow Winery", "Stoneboat Vineyards", "Sumac Ridge Estate Winery", "Summerhill Pyramid Winery", "Synchromesh Wines", "Tantalus Vineyards", "Terravista Vineyards", "The Vibrant Vine Winery", "Therapy Vineyards", "Thornhaven Estates Winery",
             "Three Sisters Winery", "TIME Family of Wines", "Tinhorn Creek Vineyards", "Township 7 Vineyards", "Van Western Vineyards", "Wild Goose Vineyards & Winery", "Winemaker’s Cut"};
 
-    Button compareButton, bookButton, homeButton, myToursButton, profileButton;
+    Button compareButton, homeButton, myToursButton, profileButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,7 +112,6 @@ public class SearchActivity extends AppCompatActivity {
 
         //getting reference to the buttons
         compareButton = findViewById(R.id.CompareButton);
-        bookButton = findViewById(R.id.BookButton);
         homeButton = findViewById(R.id.SearchHomeButton);
         myToursButton = findViewById(R.id.SearchMyToursButton);
         profileButton = findViewById(R.id.ProfileButton);
@@ -126,15 +125,6 @@ public class SearchActivity extends AppCompatActivity {
                 startActivity(compareIntent); //starting the new activity
             }//end onClick
         });//end compareButton listener
-
-        bookButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                // Create Intent to start ????Activity
-                Intent bookIntent = new Intent(SearchActivity.this, SearchActivity.class); //(swap SearchActivity.class with ????Activity.class)
-                startActivity(bookIntent); //starting the new activity
-            } //end onClick
-        });//end bookButton listener
 
         homeButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -169,7 +159,6 @@ public class SearchActivity extends AppCompatActivity {
      * SearchView to search Wineries by name: WineryNameSearchView
      * ListView: WinerySearchListView
      * Button to access Compare Tours Page: CompareButton
-     * Button to book a tour: BookButton
      * Button to access the home page: SearchHomeButton
      * Button for user to check their upcoming and previous tours: SearchMyToursButton
      * Button to access profile page: ProfileButton
