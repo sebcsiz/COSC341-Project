@@ -97,12 +97,13 @@ public class SearchActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-                //getting selected item's value (no necessary for this example)
-                //String selectedItem = (String) parent.getItemAtPosition(position);
+                //getting selected item's value
+                String selectedItem = (String) parent.getItemAtPosition(position);
 
                 //creating an intent to start WineryInfoActivity
                 Intent wineryInfoIntent = new Intent (SearchActivity.this, WineryInfoActivity.class);
                 startActivity(wineryInfoIntent); //start the new activity
+                Toast.makeText(getApplicationContext(), "Opening " + selectedItem + "Info Page", Toast.LENGTH_SHORT).show();//show toast message about what is being opened
             }
         });//end listView listener
 
