@@ -7,6 +7,7 @@ import android.provider.CalendarContract;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
+import android.content.SharedPreferences;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
@@ -67,6 +68,15 @@ public class ReceiptActivity extends AppCompatActivity {
         lineAmountPaid.setText("Amount Paid: " + (extractedPrice != null ? extractedPrice : "$0.00"));
         lineAmountDue.setText("Amount Due: $0.00");
         lineCardUsed.setText("Card Used: " + (cardNumber != null ? cardNumber : "**** **** **** 4242"));
+
+        // ---- Save this booking as an "upcoming tour" for MyTours ----
+        SharedPreferences prefs = getSharedPreferences("MyToursPrefs", MODE_PRIVATE);
+        prefs.edit()
+                .putBoolean("hasUpcoming", true)
+                .putString("up_name", tourName + " at " + wineryName)
+                .putString("up_date", date + " " + time)
+                .putString("up_details", "Party of " + partySize + " • " + selectedExperience)
+                .apply();
 
         // --- Generate QR Code using ZXing ---
         try {
@@ -148,4 +158,9 @@ public class ReceiptActivity extends AppCompatActivity {
         Intent intent = new Intent(ReceiptActivity.this, SearchActivity.class);
         startActivity(intent);
     }
+    public void onClickGoToMyTours(View view) {
+        Intent myToursIntent = new Intent(ReceiptActivity.this, MyToursActivity.class);
+        startActivity(myToursIntent);
+    }
 }
+
