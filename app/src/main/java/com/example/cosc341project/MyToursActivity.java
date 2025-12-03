@@ -78,7 +78,6 @@ public class MyToursActivity extends AppCompatActivity {
             context.startActivity(intent);
         });
     }
-
     private void setTabSelected(boolean upcomingSelected) {
         showingUpcoming = upcomingSelected;
 
@@ -94,7 +93,6 @@ public class MyToursActivity extends AppCompatActivity {
             underlinePast.setVisibility(View.VISIBLE);
         }
     }
-
     private void updateScreen() {
         if (showingUpcoming) {
             emptyText.setText("You have no upcoming tours");

@@ -158,7 +158,6 @@
 
     <!-- Home button -->
 
-    <!-- My Tours button (current screen) -->
     <Button
         android:id="@+id/mytours_home_button"
         android:layout_width="100dp"
@@ -173,6 +172,7 @@
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <!-- My tours button -->
     <Button
         android:id="@+id/mytours_my_tours_button"
         android:layout_width="123dp"
