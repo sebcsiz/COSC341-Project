@@ -147,7 +147,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
-                    android:text="Add to Calendar"
+                    android:text="Add to Calendar 🗓"
+                    android:textStyle="bold"
                     android:fontFamily="serif"
                     android:backgroundTint="#9856AD"/>
 
@@ -155,7 +156,8 @@
                     android:id="@+id/shareReceipt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Share or Export"
+                    android:text="Share or Export 🔗‍️"
+                    android:textStyle="bold"
                     android:fontFamily="serif"
                     android:backgroundTint="#9856AD"/>
             </LinearLayout>

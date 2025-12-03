@@ -39,12 +39,22 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                // Move to another page
-                Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
-                startActivity(intent); // Added intent to get from profile page to login page.
+                // confirmation dialog
+                new androidx.appcompat.app.AlertDialog.Builder(ProfileActivity.this)
+                        .setTitle("Logout Confirmation")
+                        .setMessage("Log out of your account?")
+                        .setPositiveButton("Logout", (dialog, which) -> {
+                            // Move to login page
+                            Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                            finish();
+                        })
+                        .setNegativeButton("Cancel", (dialog, which) -> {
+                            dialog.dismiss(); // Close the dialog
+                        })
+                        .create()
+                        .show();
 
-
-                finish();
             }
         });
         HomeButton.setOnClickListener(new View.OnClickListener() {

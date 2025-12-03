@@ -64,7 +64,7 @@ public class EditTourListingActivity extends AppCompatActivity {
     private int position = -1;          // which listing (-1 = new)
     private String awardsText = "";     // "Award 1, Award 2"
     private String photoUri = "";       // file:// URI string for saved image
-
+    private String initialStatus = "Active 🟢";
     // Modern Photo Picker launcher
     private ActivityResultLauncher<PickVisualMediaRequest> pickPhotoLauncher;
 
@@ -115,6 +115,11 @@ public class EditTourListingActivity extends AppCompatActivity {
         String incomingPrice = getIntent().getStringExtra("price");
         String incomingDuration = getIntent().getStringExtra("duration");
         String incomingCapacity = getIntent().getStringExtra("capacity");
+        String incomingStatus = getIntent().getStringExtra("status");
+
+        if (incomingStatus != null && !incomingStatus.isEmpty()) {
+            initialStatus = incomingStatus;
+        }
 
         if (awardsText == null) awardsText = "";
         if (photoUri == null) photoUri = "";
@@ -258,6 +263,10 @@ public class EditTourListingActivity extends AppCompatActivity {
         );
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spStatus.setAdapter(adapter);
+        int index = options.indexOf(initialStatus);
+        if (index >= 0) {
+            spStatus.setSelection(index);
+        }
     }
 
     private void setupButtons() {

@@ -3,8 +3,8 @@
 
     <string name="title">The OK Wine Experience</string>
     <string name="hint">Search for a Winery by Name</string>
-    <string name="compare">Compare Tours</string>
-    <string name="book">Book A Tour</string>
+    <string name="compare">⇄ Compare Tours</string>
+    <string name="book">🗒 Book A Tour</string>
     <string name="home">Home</string>
     <string name="myTours">My Tours</string>
     <string name="profile">Profile</string>
@@ -16,7 +16,7 @@
     <string name="Images">Images</string>
     <string name="WineryDetails">Details:</string>
     <string name="WineryDetailsParagraph">Here users can find details about the winery. There may be details about how the winery started, how long it has been operating, or the winery mission statement (etc.). </string>
-    <string name="WineryAwards">Awards:</string>
+    <string name="WineryAwards">Awards 🏆:</string>
     <string name="WineryAwardsParagraph">Here users can see a list of awards that the winery has acquired.
         \n Best Wine of 2019
         \n Award for Flavour, 2014</string>
@@ -26,7 +26,7 @@
     <string name="C_Tour">Details about tour C</string>
     <string name="D_Tour">Details about tour D</string>
     <string name="E_Tour">Details about tour E</string>
-    <string name="TourInfoButton">More Info</string>
+    <string name="TourInfoButton">ⓘ More Info</string>
     <string name="ContactWinery">Winery Contact Info</string>
     <string name="Facebook">Visit FaceBook</string>
     <string name="X">Visit X</string>

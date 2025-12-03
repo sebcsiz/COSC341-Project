@@ -225,6 +225,7 @@ public class ListingsActivity extends AppCompatActivity {
             btnEditListing.setOnClickListener(v -> {
                 Intent intent = new Intent(ListingsActivity.this, EditTourListingActivity.class);
                 intent.putExtra("position", index);
+                intent.putExtra("status", listing.status);
                 intent.putExtra("title", listing.title);
                 intent.putExtra("location", listing.location);
                 intent.putExtra("description", listing.description);
@@ -233,7 +234,6 @@ public class ListingsActivity extends AppCompatActivity {
                 intent.putExtra("price", listing.price);
                 intent.putExtra("duration", listing.duration);
                 intent.putExtra("capacity", listing.capacity);
-                intent.putExtra("status", listing.status);
                 startActivityForResult(intent, REQUEST_EDIT_LISTING);
             });
 
