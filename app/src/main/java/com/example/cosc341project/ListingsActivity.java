@@ -14,44 +14,45 @@ import java.util.ArrayList;
 
 public class ListingsActivity extends AppCompatActivity {
 
-    private static final int REQUEST_EDIT_LISTING = 1;
+    private static final int REQUEST_EDIT_LISTING = 1001;
 
-    // Model for one listing
     private static class Listing {
         String title;
+        String location;
         String description;
         String awardsText;
-
-        int photoResId;   // drawable resource id (0 means none)
-
+        String photoUri;   // file:// URI to internal storage
         String price;
         String duration;
         String capacity;
+        String status;
 
         Listing(String title,
+                String location,
                 String description,
                 String awardsText,
-                int photoResId,
+                String photoUri,
                 String price,
                 String duration,
-                String capacity) {
+                String capacity,
+                String status) {
             this.title = title;
+            this.location = location;
             this.description = description;
             this.awardsText = awardsText;
-            this.photoResId = photoResId;
+            this.photoUri = photoUri;
             this.price = price;
             this.duration = duration;
             this.capacity = capacity;
+            this.status = status;
         }
     }
 
-    // In-memory store of all listings
     private static final ArrayList<Listing> listings = new ArrayList<>();
 
     private LinearLayout listingsContainer;
     private Button btnAddListing;
 
-    // Bottom nav
     private Button HomeButton;
     private Button ListingsButton;
     private Button ProfileButton;
@@ -68,24 +69,21 @@ public class ListingsActivity extends AppCompatActivity {
         ListingsButton = findViewById(R.id.ListingsButton);
         ProfileButton = findViewById(R.id.ProfileButton);
 
-        // If launched from OwnerMain in "create mode", open new listing editor immediately
         boolean startInCreateMode = getIntent().getBooleanExtra("startInCreateMode", false);
         if (startInCreateMode) {
             Intent intent = new Intent(ListingsActivity.this, EditTourListingActivity.class);
-            intent.putExtra("position", -1); // new listing
+            intent.putExtra("position", -1);
             startActivityForResult(intent, REQUEST_EDIT_LISTING);
         }
 
         renderListings();
 
-        // + Add listing → new listing
         btnAddListing.setOnClickListener(v -> {
             Intent intent = new Intent(ListingsActivity.this, EditTourListingActivity.class);
             intent.putExtra("position", -1);
             startActivityForResult(intent, REQUEST_EDIT_LISTING);
         });
 
-        // Bottom nav
         HomeButton.setOnClickListener(v -> {
             Intent intent = new Intent(ListingsActivity.this, OwnerMainActivity.class);
             startActivity(intent);
@@ -106,8 +104,9 @@ public class ListingsActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == REQUEST_EDIT_LISTING && resultCode == RESULT_OK && data != null) {
+        if (resultCode != RESULT_OK || data == null) return;
 
+        if (requestCode == REQUEST_EDIT_LISTING) {
             boolean delete = data.getBooleanExtra("delete", false);
             int position = data.getIntExtra("position", -1);
 
@@ -119,43 +118,43 @@ public class ListingsActivity extends AppCompatActivity {
                 return;
             }
 
+            String status = data.getStringExtra("status");
             String title = data.getStringExtra("title");
+            String location = data.getStringExtra("location");
             String description = data.getStringExtra("description");
             String awardsText = data.getStringExtra("awardsText");
-            int photoResId = data.getIntExtra("photoResId", 0);
+            String photoUri = data.getStringExtra("photoUri");
 
             String price = data.getStringExtra("price");
             String duration = data.getStringExtra("duration");
             String capacity = data.getStringExtra("capacity");
 
             if (title == null || title.isEmpty()) title = "New listing";
+            if (location == null) location = "";
             if (description == null || description.isEmpty()) description = "No description provided";
             if (awardsText == null) awardsText = "";
+            if (photoUri == null) photoUri = "";
             if (price == null) price = "";
             if (duration == null) duration = "";
             if (capacity == null) capacity = "";
+            if (status == null) status = "Active 🟢";
 
             if (position == -1) {
-                // New listing
                 listings.add(new Listing(
-                        title,
-                        description,
-                        awardsText,
-                        photoResId,
-                        price,
-                        duration,
-                        capacity
+                        title, location, description, awardsText,
+                        photoUri, price, duration, capacity, status
                 ));
             } else if (position >= 0 && position < listings.size()) {
-                // Update existing
                 Listing l = listings.get(position);
                 l.title = title;
+                l.location = location;
                 l.description = description;
                 l.awardsText = awardsText;
-                l.photoResId = photoResId;
+                l.photoUri = photoUri;
                 l.price = price;
                 l.duration = duration;
                 l.capacity = capacity;
+                l.status = status;
             }
 
             renderListings();
@@ -175,8 +174,10 @@ public class ListingsActivity extends AppCompatActivity {
                     false
             );
 
+            TextView tvStatus = cardView.findViewById(R.id.tvListingStatus);
             TextView tvTitle = cardView.findViewById(R.id.tvListingTitle);
-            TextView tvLocation = cardView.findViewById(R.id.tvListingLocation);
+            TextView tvLocation = cardView.findViewById(R.id.tvListingAddress);
+            TextView tvDescription = cardView.findViewById(R.id.tvListingDescription);
             TextView tvAwards = cardView.findViewById(R.id.tvListingAwards);
             TextView tvPrice = cardView.findViewById(R.id.tvListingPrice);
             TextView tvDuration = cardView.findViewById(R.id.tvListingDuration);
@@ -184,36 +185,38 @@ public class ListingsActivity extends AppCompatActivity {
             Button btnEditListing = cardView.findViewById(R.id.btnEditListing);
             android.widget.ImageView ivListingImage = cardView.findViewById(R.id.ivListingImage);
 
-            tvTitle.setText("Title: " + listing.title);
-            tvLocation.setText(listing.description);
+            tvStatus.setText(listing.status);
+            tvTitle.setText(listing.title);
+            tvLocation.setText(listing.location);
+            tvDescription.setText(listing.description);
 
-            if (listing.price != null && !listing.price.isEmpty()) {
-                tvPrice.setText("Price: $" + listing.price);
+            if (!listing.price.isEmpty()) {
+                tvPrice.setText("$ " + listing.price);
             } else {
-                tvPrice.setText("Price: N/A");
+                tvPrice.setText("N/A");
             }
 
-            if (listing.duration != null && !listing.duration.isEmpty()) {
-                tvDuration.setText("Duration: " + listing.duration + " hours");
+            if (!listing.duration.isEmpty()) {
+                tvDuration.setText(listing.duration + " hours");
             } else {
-                tvDuration.setText("Duration: N/A");
+                tvDuration.setText("N/A");
             }
 
-            if (listing.capacity != null && !listing.capacity.isEmpty()) {
-                tvCapacity.setText("Capacity: " + listing.capacity + " people");
+            if (!listing.capacity.isEmpty()) {
+                tvCapacity.setText(listing.capacity + "⛹");
             } else {
-                tvCapacity.setText("Capacity: N/A");
+                tvCapacity.setText("N/A");
             }
 
-            if (listing.awardsText == null || listing.awardsText.isEmpty()) {
-                tvAwards.setText("Awards: None");
+            if (listing.awardsText.isEmpty()) {
+                tvAwards.setText("None");
             } else {
-                tvAwards.setText("Awards: " + listing.awardsText);
+                tvAwards.setText(listing.awardsText);
             }
 
-            // Use selected photo if available
-            if (listing.photoResId != 0) {
-                ivListingImage.setImageResource(listing.photoResId);
+            // Show photo from internal storage if available
+            if (!listing.photoUri.isEmpty()) {
+                ivListingImage.setImageURI(Uri.parse(listing.photoUri));
             } else {
                 ivListingImage.setImageResource(R.drawable.ic_launcher_background);
             }
@@ -223,12 +226,14 @@ public class ListingsActivity extends AppCompatActivity {
                 Intent intent = new Intent(ListingsActivity.this, EditTourListingActivity.class);
                 intent.putExtra("position", index);
                 intent.putExtra("title", listing.title);
+                intent.putExtra("location", listing.location);
                 intent.putExtra("description", listing.description);
                 intent.putExtra("awardsText", listing.awardsText);
-                intent.putExtra("photoResId", listing.photoResId);
+                intent.putExtra("photoUri", listing.photoUri);
                 intent.putExtra("price", listing.price);
                 intent.putExtra("duration", listing.duration);
                 intent.putExtra("capacity", listing.capacity);
+                intent.putExtra("status", listing.status);
                 startActivityForResult(intent, REQUEST_EDIT_LISTING);
             });
 
