@@ -9,6 +9,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.cosc341project.LeaveReviewActivity;
+import com.example.cosc341project.ProfileActivity;
+import com.example.cosc341project.R;
+import com.example.cosc341project.SearchActivity;
+
 public class MyToursActivity extends AppCompatActivity {
 
     private TextView tabUpcoming, tabPast, emptyText;
@@ -78,6 +83,7 @@ public class MyToursActivity extends AppCompatActivity {
             context.startActivity(intent);
         });
     }
+
     private void setTabSelected(boolean upcomingSelected) {
         showingUpcoming = upcomingSelected;
 
@@ -93,6 +99,7 @@ public class MyToursActivity extends AppCompatActivity {
             underlinePast.setVisibility(View.VISIBLE);
         }
     }
+
     private void updateScreen() {
         if (showingUpcoming) {
             emptyText.setText("You have no upcoming tours");
