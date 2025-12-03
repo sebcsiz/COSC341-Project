@@ -47,7 +47,6 @@ public class LoginActivity extends AppCompatActivity {
                     // Move to another page
                     Intent intent = new Intent(LoginActivity.this, OwnerMainActivity.class);
                     startActivity(intent);
-
                     finish();
 
                 } else if (email.equals("user@someemail.com") && password.equals("1234")) {

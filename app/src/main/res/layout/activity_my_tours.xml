@@ -290,8 +290,4 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/mytours_my_tours_button" />
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
