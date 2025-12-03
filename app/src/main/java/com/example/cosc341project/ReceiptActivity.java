@@ -69,6 +69,7 @@ public class ReceiptActivity extends AppCompatActivity {
         lineAmountDue.setText("Amount Due: $0.00");
         lineCardUsed.setText("Card Used: " + (cardNumber != null ? cardNumber : "**** **** **** 4242"));
 
+
         // ---- Save this booking as an "upcoming tour" for MyTours ----
         SharedPreferences prefs = getSharedPreferences("MyToursPrefs", MODE_PRIVATE);
         prefs.edit()
