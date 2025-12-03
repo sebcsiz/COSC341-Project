@@ -5,53 +5,18 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="12dp"
-    tools:context=".BookingActivity">
+    tools:context=".BookingActivity"
+    android:background="#D8BFD8">
 
-    <LinearLayout
-        android:id="@+id/bottomNav"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonContainer"
-        app:layout_constraintVertical_bias="0.805">
-
-        <Button
-            android:id="@+id/HomeButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
-            android:onClick="onClickGoToSearch"
-            android:text="Home" />
-
-        <Button
-            android:id="@+id/MyToursButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
-            android:onClick="onClickGoToMyTours"
-            android:text="My Tours" />
-
-        <Button
-            android:id="@+id/Profile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Profile"
-            android:onClick="onClickGoToProfile" />
-    </LinearLayout>
 
     <EditText
         android:id="@+id/Name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@android:drawable/edit_text"
+        android:background="@drawable/rounded_text_box"
         android:drawableStart="@android:drawable/ic_menu_edit"
+        android:fontFamily="serif"
         android:hint="Full Name"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,9 +29,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@android:drawable/edit_text"
+        android:background="@drawable/rounded_text_box"
         android:drawableStart="@android:drawable/ic_dialog_email"
         android:hint="Email Address"
+        android:fontFamily="serif"
         android:inputType="textEmailAddress"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -88,22 +54,24 @@
         <EditText
             android:id="@+id/editTextDate"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:layout_weight="1"
-            android:background="@android:drawable/edit_text"
+            android:background="@drawable/rounded_text_box"
             android:drawableStart="@android:drawable/ic_menu_today"
             android:hint="Date (mm/dd/yy)"
+            android:fontFamily="serif"
             android:inputType="date"
             android:padding="10dp" />
 
         <EditText
             android:id="@+id/editTextTime"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:layout_weight="1"
-            android:background="@android:drawable/edit_text"
+            android:background="@drawable/rounded_text_box"
             android:drawableStart="@android:drawable/ic_lock_idle_alarm"
             android:hint="Time (hh:mm)"
+            android:fontFamily="serif"
             android:inputType="time"
             android:padding="10dp" />
     </LinearLayout>
@@ -113,6 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Input Your Information"
+        android:fontFamily="serif"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginTop="8dp"
@@ -125,9 +94,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@android:drawable/edit_text"
+        android:background="@drawable/rounded_text_box"
         android:drawableStart="@android:drawable/ic_menu_call"
         android:hint="Phone Number"
+        android:fontFamily="serif"
         android:inputType="phone"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -184,6 +154,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Select an Experience:"
+        android:fontFamily="serif"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -196,6 +167,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Winery Name"
+        android:fontFamily="sans-serif-smallcaps"
         android:textAlignment="center"
         android:textSize="28sp"
         android:textStyle="bold"
@@ -242,6 +214,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Back"
+            android:fontFamily="serif"
+            android:textStyle="bold"
+            android:backgroundTint="#9856AD"
             android:textColorLink="#A64C7A" />
 
         <Space
@@ -253,7 +228,64 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Continue"
+            android:fontFamily="serif"
+            android:textStyle="bold"
+            android:backgroundTint="#9856AD"
             android:textColorLink="#A44B78" />
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:gravity="center"
+        android:paddingBottom="18dp"
+        android:weightSum="9"
+        android:background="#9E7BB5"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/HomeButton"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:onClick="onClickGoToSearch"
+            android:text="⾕\nHome"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-smallcaps"
+            android:backgroundTint="#9E7BB5"/>
+
+        <Button
+            android:id="@+id/MyToursButton"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:onClick="onClickGoToMyTours"
+            android:text="𐃯\nMy Tours"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-smallcaps"
+            android:backgroundTint="#9E7BB5"/>
+
+        <Button
+            android:id="@+id/Profile"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="ጸ\nProfile"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-smallcaps"
+            android:onClick="onClickGoToProfile"
+            android:backgroundTint="#9E7BB5"/>
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

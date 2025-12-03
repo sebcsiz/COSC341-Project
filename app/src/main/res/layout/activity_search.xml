@@ -5,86 +5,118 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/app_background"
     android:onClick="handleOutsideClick"
     tools:context=".SearchActivity">
 
     <TextView
         android:id="@+id/WineryNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="@string/title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textSize="25sp"
-        android:textStyle="bold"/>
-
-    <SearchView
-        android:id="@+id/WineryNameSearchView"
-        android:layout_width="340dp"
-        android:layout_height="55dp"
-        android:iconifiedByDefault="false"
-        android:layout_marginTop="25dp"
-        android:queryHint="@string/hint"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/WineryNameTextView" />
-
-    <Button
-        android:id="@+id/CompareButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="@string/compare"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/WineryNameSearchView" />
-
-    <ListView
-        android:id="@+id/WinerySearchListView"
-        android:layout_width="350dp"
-        android:layout_height="444dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/WineryNameSearchView"
-        android:background="@android:color/white"
-        android:visibility="gone"/>
-
-    <View
         android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:background="#D3D3D3"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
-    <Button
-        android:id="@+id/SearchHomeButton"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:text="@string/home"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:padding="16dp"
+        android:gravity="center"
+        android:text="🍷The 𝐎𝐤 Wine Experience"
+        android:textColor="#FFFFFF"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-smallcaps"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="50dp"
+        android:background="@color/zxing_transparent"
+        android:shadowColor="#80000000"
+        android:shadowDx="10"
+        android:shadowDy="10"
+        android:shadowRadius="8" />
 
-    <Button
-        android:id="@+id/SearchMyToursButton"
-        android:layout_width="wrap_content"
+            <SearchView
+                android:id="@+id/WineryNameSearchView"
+                android:layout_width="340dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="128dp"
+                android:background="@drawable/rounded_text_box"
+                android:iconifiedByDefault="false"
+                android:queryHint="@string/hint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.492"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/WineryNameTextView" />
+
+            <Button
+                android:id="@+id/CompareButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="@string/compare"
+                android:textStyle="bold"
+                android:fontFamily="serif"
+                android:backgroundTint="#9856AD"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/WineryNameSearchView" />
+
+            <ListView
+                android:id="@+id/WinerySearchListView"
+                android:layout_width="350dp"
+                android:layout_height="444dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/WineryNameSearchView"
+                android:background="@android:color/white"
+                android:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/myTours"
+        android:orientation="horizontal"
+        android:weightSum="9"
+        android:gravity="center"
+        android:paddingBottom="18dp"
+        android:background="#9E7BB5"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ProfileButton"
-        app:layout_constraintStart_toEndOf="@+id/SearchHomeButton" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <Button
-        android:id="@+id/ProfileButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
-        android:text="@string/profile"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <Button
+            android:id="@+id/SearchHomeButton"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#9E7BB5"
+            android:gravity="center"
+            android:text="⾕\nHome"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-smallcaps" />
 
+        <Button
+            android:id="@+id/SearchMyToursButton"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#9E7BB5"
+            android:gravity="center"
+            android:text="𐃯\nMy Tours"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-smallcaps" />
+
+        <Button
+            android:id="@+id/ProfileButton"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:backgroundTint="#9E7BB5"
+            android:text="ጸ\nProfile"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-smallcaps" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,302 +1,366 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:background="#D8BFD8"
     tools:context=".PaymentActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <!-- Scrollable content area -->
+    <ScrollView
+        android:id="@+id/paymentScroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Title -->
-        <TextView
-            android:id="@+id/paymentTitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
-            android:gravity="center"
-            android:text="This winery requires a credit card to complete your booking"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <!-- Saved Cards Section -->
-        <TextView
-            android:id="@+id/savedCardsLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Saved Cards"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@id/paymentTitle"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="8dp" />
+            <!-- Title -->
+            <TextView
+                android:id="@+id/paymentTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="52dp"
+                android:gravity="center"
+                android:text="This winery requires a credit card to complete your booking"
+                android:fontFamily="serif"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <HorizontalScrollView
-            android:id="@+id/savedCardsScroll"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:scrollbars="none"
-            app:layout_constraintTop_toBottomOf="@id/savedCardsLabel"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            <!-- Saved Cards Section -->
+            <TextView
+                android:id="@+id/savedCardsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saved Cards"
+                android:fontFamily="serif"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@id/paymentTitle"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <HorizontalScrollView
+                android:id="@+id/savedCardsScroll"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:scrollbars="none"
+                app:layout_constraintTop_toBottomOf="@id/savedCardsLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/savedCardsRow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="8dp">
+
+                    <Button
+                        android:id="@+id/cardVisa"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:text="Visa **** 4242"
+                        android:fontFamily="serif"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:paddingHorizontal="20dp"
+                        android:paddingVertical="10dp"
+                        android:background="@drawable/rounded_card_button_dark" />
+
+                    <Button
+                        android:id="@+id/cardMaster"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:text="Mastercard **** 8888"
+                        android:fontFamily="serif"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:paddingHorizontal="20dp"
+                        android:paddingVertical="10dp"
+                        android:background="@drawable/rounded_card_button_dark" />
+
+                    <Button
+                        android:id="@+id/cardAmex"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Amex **** 0005"
+                        android:fontFamily="serif"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:paddingHorizontal="20dp"
+                        android:paddingVertical="10dp"
+                        android:background="@drawable/rounded_card_button_dark" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- Card Info Section -->
+            <TextView
+                android:id="@+id/cardInfoTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Card Information"
+                android:fontFamily="serif"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintTop_toBottomOf="@id/savedCardsScroll"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <EditText
+                android:id="@+id/cardNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="Card Number"
+                android:fontFamily="serif"
+                android:inputType="number"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/rounded_text_box"
+                app:layout_constraintTop_toBottomOf="@id/cardInfoTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <EditText
+                android:id="@+id/cardName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_text_box"
+                android:hint="Name on Card"
+                android:fontFamily="serif"
+                android:inputType="textPersonName"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@id/cardNumber"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <LinearLayout
-                android:id="@+id/savedCardsRow"
-                android:layout_width="wrap_content"
+                android:id="@+id/expCvvRow"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingHorizontal="8dp">
+                android:weightSum="2"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@id/cardName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
 
-                <!-- Sample Card 1 -->
-                <Button
-                    android:id="@+id/cardVisa"
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/expDate"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp"
-                    android:text="Visa **** 4242"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:paddingHorizontal="20dp"
-                    android:paddingVertical="10dp"
-                    android:background="@drawable/rounded_card_button_dark" />
+                    android:hint="Exp Date (MM/YY)"
+                    android:background="@drawable/rounded_text_box"
+                    android:fontFamily="serif"
+                    android:inputType="date" />
 
-                <!-- Sample Card 2 -->
-                <Button
-                    android:id="@+id/cardMaster"
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/cvv"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp"
-                    android:text="Mastercard **** 8888"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:paddingHorizontal="20dp"
-                    android:paddingVertical="10dp"
-                    android:background="@drawable/rounded_card_button_dark" />
-
-                <!-- Sample Card 3 -->
-                <Button
-                    android:id="@+id/cardAmex"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Amex **** 0005"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:paddingHorizontal="20dp"
-                    android:paddingVertical="10dp"
-                    android:background="@drawable/rounded_card_button_dark" />
+                    android:hint="CVV"
+                    android:background="@drawable/rounded_text_box"
+                    android:fontFamily="serif"
+                    android:inputType="numberPassword"
+                    android:layout_marginStart="8dp" />
             </LinearLayout>
-        </HorizontalScrollView>
 
-        <!-- Card Info Section -->
-        <TextView
-            android:id="@+id/cardInfoTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Card Information"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@id/savedCardsScroll"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="12dp" />
-
-        <EditText
-            android:id="@+id/cardNumber"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="Card Number"
-            android:inputType="number"
-            app:layout_constraintTop_toBottomOf="@id/cardInfoTitle"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp" />
-
-        <EditText
-            android:id="@+id/cardName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="Name on Card"
-            android:inputType="textPersonName"
-            app:layout_constraintTop_toBottomOf="@id/cardNumber"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp" />
-
-        <LinearLayout
-            android:id="@+id/expCvvRow"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            app:layout_constraintTop_toBottomOf="@id/cardName"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp">
+            <!-- Billing Address Section -->
+            <TextView
+                android:id="@+id/billingTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Billing Address"
+                android:fontFamily="serif"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/expCvvRow"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <EditText
-                android:id="@+id/expDate"
+                android:id="@+id/country"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:hint="Exp Date (MM/YY)"
-                android:inputType="date" />
+                android:hint="Country"
+                android:background="@drawable/rounded_text_box"
+                android:fontFamily="serif"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@id/billingTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <EditText
-                android:id="@+id/cvv"
+                android:id="@+id/state"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:hint="CVV"
-                android:inputType="numberPassword"
-                android:layout_marginStart="8dp" />
-        </LinearLayout>
+                android:hint="State / Province"
+                android:background="@drawable/rounded_text_box"
+                android:fontFamily="serif"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@id/country"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Billing Address Section -->
-        <TextView
-            android:id="@+id/billingTitle"
-            android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/city"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="City"
+                android:background="@drawable/rounded_text_box"
+                android:fontFamily="serif"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@id/state"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <EditText
+                android:id="@+id/zip"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="ZIP / Postal Code"
+                android:background="@drawable/rounded_text_box"
+                android:fontFamily="serif"
+                android:inputType="number"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@id/city"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <EditText
+                android:id="@+id/address"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="Street Address"
+                android:background="@drawable/rounded_text_box"
+                android:fontFamily="serif"
+                android:inputType="textPostalAddress"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@id/zip"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <!-- Save to Account Checkbox -->
+            <CheckBox
+                android:id="@+id/saveToAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add card to my account"
+                android:fontFamily="serif"
+                android:layout_marginTop="12dp"
+                app:layout_constraintTop_toBottomOf="@id/address"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <!-- Buttons -->
+            <LinearLayout
+                android:id="@+id/paymentButtons"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="32dp"
+                app:layout_constraintTop_toBottomOf="@id/saveToAccount"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <Button
+                    android:id="@+id/backPayment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Back"
+                    android:textStyle="bold"
+                    android:fontFamily="serif"
+                    android:backgroundTint="#9856AD"/>
+
+                <Space
+                    android:layout_width="24dp"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/completeBooking"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Complete Booking"
+                    android:textStyle="bold"
+                    android:fontFamily="serif"
+                    android:backgroundTint="#9856AD"/>
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation Buttons, fixed to bottom -->
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="18dp"
+        android:background="#9E7BB5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/HomeButton"
+            android:onClick="onClickGoToSearch"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:text="Billing Address"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="⾕\nHome"
             android:textStyle="bold"
-            android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@id/expCvvRow"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="16dp" />
+            android:textSize="16dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:backgroundTint="#9E7BB5"
+            android:textColor="#FFFFFF"
+            android:layout_marginEnd="8dp" />
 
-        <EditText
-            android:id="@+id/country"
-            android:layout_width="0dp"
+        <Button
+            android:id="@+id/MyToursButton"
+            android:onClick="onClickGoToMyTours"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:hint="Country"
-            app:layout_constraintTop_toBottomOf="@id/billingTitle"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp" />
-
-        <EditText
-            android:id="@+id/state"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="State / Province"
-            app:layout_constraintTop_toBottomOf="@id/country"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp" />
-
-        <EditText
-            android:id="@+id/city"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="City"
-            app:layout_constraintTop_toBottomOf="@id/state"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp" />
-
-        <EditText
-            android:id="@+id/zip"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="ZIP / Postal Code"
-            android:inputType="number"
-            app:layout_constraintTop_toBottomOf="@id/city"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp" />
-
-        <EditText
-            android:id="@+id/address"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="Street Address"
-            android:inputType="textPostalAddress"
-            app:layout_constraintTop_toBottomOf="@id/zip"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp" />
-
-        <!-- Save to Account Checkbox -->
-        <CheckBox
-            android:id="@+id/saveToAccount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add card to my account"
-            app:layout_constraintTop_toBottomOf="@id/address"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="12dp" />
-
-        <!-- Buttons -->
-        <LinearLayout
-            android:id="@+id/paymentButtons"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_weight="1"
             android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@id/saveToAccount"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="32dp">
+            android:text="𐃯\nMy Tours"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:backgroundTint="#9E7BB5"
+            android:textColor="#FFFFFF"
+            android:layout_marginEnd="8dp" />
 
-            <Button
-                android:id="@+id/backPayment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Back" />
-
-            <Space
-                android:layout_width="24dp"
-                android:layout_height="wrap_content" />
-
-            <Button
-                android:id="@+id/completeBooking"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Complete Booking" />
-        </LinearLayout>
-
-        <!-- Bottom Navigation Buttons -->
-        <LinearLayout
-            android:id="@+id/bottomNav"
-            android:layout_width="0dp"
+        <Button
+            android:id="@+id/Profile"
+            android:onClick="onClickGoToProfile"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_weight="1"
             android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/paymentButtons">
+            android:text="ጸ\nProfile"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:backgroundTint="#9E7BB5"
+            android:textColor="#FFFFFF"/>
+    </LinearLayout>
 
-            <Button
-                android:id="@+id/HomeButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:onClick="onClickGoToSearch"
-                android:text="Home" />
-
-            <Button
-                android:id="@+id/MyToursButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:onClick="onClickGoToMyTours"
-                android:text="My Tours" />
-
-            <Button
-                android:id="@+id/Profile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Profile"
-                android:onClick="onClickGoToProfile" />
-        </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

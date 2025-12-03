@@ -24,9 +24,10 @@
             <!-- Page title -->
             <TextView
                 android:id="@+id/tvPageTitle"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Edit / Add Listing"
+                android:gravity="center"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:fontFamily="sans-serif-smallcaps"
