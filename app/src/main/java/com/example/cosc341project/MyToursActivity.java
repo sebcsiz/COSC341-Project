@@ -9,6 +9,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.cosc341project.LeaveReviewActivity;
+import com.example.cosc341project.ProfileActivity;
+import com.example.cosc341project.R;
+import com.example.cosc341project.SearchActivity;
+
 public class MyToursActivity extends AppCompatActivity {
 
     private TextView tabUpcoming, tabPast, emptyText;
