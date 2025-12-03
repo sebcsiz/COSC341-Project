@@ -15,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cosc341project.MyToursActivity;
 import com.example.cosc341project.ProfileActivity;
 import com.example.cosc341project.R;
 import com.example.cosc341project.SearchActivity;
@@ -73,7 +74,7 @@ public class SelectToursActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Create Intent to start ????Activity
-                Intent myToursIntent = new Intent(SelectToursActivity.this, SearchActivity.class); //(swap SearchActivity.class with ????Activity.class)
+                Intent myToursIntent = new Intent(SelectToursActivity.this, MyToursActivity.class); //(swap SearchActivity.class with ????Activity.class)
                 startActivity(myToursIntent); //starting the new activity
             } //end onClick
         });//end myToursButton listener
