@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#9856AD"
-            android:text="Sort By"
+            android:text="Sort By\n⬇⬆"
             android:fontFamily="serif"
             android:textStyle="bold"/>
 
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#9856AD"
-            android:text="Clear"
+            android:text="Clear\n✖"
             android:fontFamily="serif"
             android:textStyle="bold"/>
     </LinearLayout>
