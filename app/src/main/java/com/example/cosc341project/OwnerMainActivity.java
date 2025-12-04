@@ -7,6 +7,9 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 public class OwnerMainActivity extends AppCompatActivity {
 
@@ -22,6 +25,12 @@ public class OwnerMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_owner_main);
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0);
+            return insets;
+        });
 
         cardCreateListing = findViewById(R.id.cardCreateListing);
         cardManageListings = findViewById(R.id.cardManageListings);
