@@ -6,6 +6,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.AutoCompleteTextView;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.PickVisualMediaRequest;
@@ -38,7 +41,7 @@ public class EditTourListingActivity extends AppCompatActivity {
 
     private Spinner spStatus;
     private EditText etTitle;
-    private EditText etLocation;
+    private AutoCompleteTextView etLocation;
     private EditText etDescription;
     private EditText etPrice;
     private EditText etDuration;
@@ -100,9 +103,45 @@ public class EditTourListingActivity extends AppCompatActivity {
         helpStatus = findViewById(R.id.helpStatus);
         helpTitle = findViewById(R.id.helpTitle);
         helpPhoto = findViewById(R.id.helpPhoto);
+        View bottomNav = findViewById(R.id.bottomNav);
 
         setupHelpBubbles();
         setupPhotoPicker();
+
+        etLocation.getViewTreeObserver().addOnGlobalLayoutListener(
+                new ViewTreeObserver.OnGlobalLayoutListener() {
+                    @Override
+                    public void onGlobalLayout() {
+                        int[] locCoords = new int[2];
+                        int[] navCoords = new int[2];
+
+                        etLocation.getLocationOnScreen(locCoords);
+                        int etBottomY = locCoords[1] + etLocation.getHeight();
+
+                        bottomNav.getLocationOnScreen(navCoords);
+                        int navTopY = navCoords[1];
+
+                        int maxHeight = navTopY - etBottomY;
+
+                        if (maxHeight > 0) {
+                            etLocation.setDropDownHeight(maxHeight);
+                        }
+
+                        etLocation.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                    }
+                }
+        );
+
+        String[] wineryLocations = getResources().getStringArray(R.array.okanagan_wineries);
+
+        ArrayAdapter<String> locationAdapter = new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_dropdown_item_1line,
+                wineryLocations
+        );
+
+        etLocation.setAdapter(locationAdapter);
+        etLocation.setThreshold(1);
 
         // Read incoming data
         position = getIntent().getIntExtra("position", -1);
@@ -163,7 +202,6 @@ public class EditTourListingActivity extends AppCompatActivity {
         setupBottomNav();
     }
 
-    // Photo picker setup (modern API) - copies image into internal storage
     private void setupPhotoPicker() {
         pickPhotoLauncher = registerForActivityResult(
                 new ActivityResultContracts.PickVisualMedia(),
@@ -184,9 +222,6 @@ public class EditTourListingActivity extends AppCompatActivity {
         );
     }
 
-    /**
-     * Copies the selected image into app-internal storage and returns a file:// URI string.
-     */
     private String saveImageToInternalStorage(Uri sourceUri) {
         InputStream in = null;
         FileOutputStream out = null;

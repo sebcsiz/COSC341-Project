@@ -110,14 +110,20 @@
                 android:fontFamily="serif"
                 android:textStyle="bold" />
 
-            <EditText
+            <AutoCompleteTextView
                 android:id="@+id/etLocation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Address / City / Province"
+                android:dropDownHeight="500dp"
+                android:dropDownVerticalOffset="0dp"
+                android:dropDownWidth="350dp"
+                android:hint="Address"
                 android:fontFamily="serif"
                 android:layout_marginBottom="12dp"
-                android:background="@drawable/rounded_text_box"/>
+                android:background="@drawable/rounded_text_box"
+                android:padding="10dp"
+                android:inputType="text"
+                android:completionThreshold="1" />
 
             <!-- Description -->
             <TextView

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">COSC341Project</string>
 
@@ -53,5 +54,82 @@
     <string name="submit_button">Submit</string>
     <string name="review_confirmation">Your review of %1$s was submitted</string>
     <string name="ok_button">OK</string>
+
+    <!-- Addresses of wineries -->
+    <string-array name="okanagan_wineries">
+        <!-- Kelowna -->
+        <item>1730 Mission Hill Rd, West Kelowna, BC</item>
+        <item>3303 Boucherie Rd, West Kelowna, BC</item>
+        <item>2550 Boucherie Rd, West Kelowna, BC</item>
+        <item>5445 Lakeshore Rd, Kelowna, BC</item>
+        <item>4870 Chute Lake Rd, Kelowna, BC</item>
+        <item>3240 Pooley Rd, Kelowna, BC</item>
+        <item>2555 Saucier Rd, Kelowna, BC</item>
+        <item>1875 Country Club Dr, Kelowna, BC</item>
+        <item>1465 Sumas Rd, Kelowna, BC</item>
+        <item>1125 Richter St, Kelowna, BC</item>
+        <item>2550 Acland Rd, Kelowna, BC</item>
+        <item>3125 Boucherie Rd, West Kelowna, BC</item>
+        <item>8225 Gillard Forest Service Rd, Kelowna, BC</item>
+        <item>4444G Houghton Rd, Kelowna, BC</item>
+
+        <!-- Lake Country -->
+        <item>15686 Commonage Rd, Lake Country, BC</item>
+        <item>2291 Goldie Rd, Lake Country, BC</item>
+        <item>1055 Camp Rd, Lake Country, BC</item>
+        <item>273 Chadwell Pl, Lake Country, BC</item>
+
+        <!-- Summerland -->
+        <item>18404 Bathville Rd, Summerland, BC</item>
+        <item>14014 Gartrell Rd, Summerland, BC</item>
+        <item>17388 Hwy 97, Summerland, BC</item>
+        <item>9384 Hwy 97, Summerland, BC</item>
+        <item>18404 Bathville Rd, Summerland, BC</item>
+
+        <!-- Penticton -->
+        <item>1480 McMillan Ave, Penticton, BC</item>
+        <item>1450 Naramata Rd, Penticton, BC</item>
+        <item>3623 1st Ave, Naramata, BC</item>
+        <item>1465 Naramata Rd, Penticton, BC</item>
+        <item>799 Ponderosa Rd, Penticton, BC</item>
+
+        <!-- Naramata Bench -->
+        <item>3623 1st St, Naramata, BC</item>
+        <item>1445 Naramata Rd, Naramata, BC</item>
+        <item>1356 Naramata Rd, Naramata, BC</item>
+        <item>899 Naramata Rd, Naramata, BC</item>
+        <item>1315 Taylor Pl, Naramata, BC</item>
+
+        <!-- Okanagan Falls -->
+        <item>1163 Maple St, Okanagan Falls, BC</item>
+        <item>2145 Sun Valley Way, Okanagan Falls, BC</item>
+        <item>1040 Boucherie Rd, Okanagan Falls, BC</item>
+
+        <!-- Oliver -->
+        <item>500 Burrowing Owl Pl, Oliver, BC</item>
+        <item>7857 Tucelnuit Dr, Oliver, BC</item>
+        <item>5500 Hwy 97, Oliver, BC</item>
+        <item>100 Enterprise Way, Oliver, BC</item>
+        <item>8780 Hwy 97, Oliver, BC</item>
+        <item>5816 Ryegrass Rd, Oliver, BC</item>
+        <item>36264 97th St, Oliver, BC</item>
+
+        <!-- Osoyoos -->
+        <item>1400 Rancher Creek Rd, Osoyoos, BC</item>
+        <item>16091 87th St, Osoyoos, BC</item>
+        <item>1222 Rancher Creek Rd, Osoyoos, BC</item>
+        <item>100 Harbour Key Dr, Osoyoos, BC</item>
+        <item>200 Rancher Creek Rd, Osoyoos, BC</item>
+
+        <!-- Additional Addresses -->
+        <item>250 Upper Bench Rd S, Penticton, BC</item>
+        <item>400 Smythe Dr, Naramata, BC</item>
+        <item>101 Martin St, Penticton, BC</item>
+        <item>2270 Garner Rd, Kelowna, BC</item>
+        <item>1187 KLO Rd, Kelowna, BC</item>
+        <item>1250 McKinley Beach Dr, Kelowna, BC</item>
+        <item>3230 Highway 3, Keremeos, BC</item>
+        <item>147 Lynch Rd, Keremeos, BC</item>
+    </string-array>
 
 </resources>
