@@ -159,7 +159,7 @@ public class ReceiptActivity extends AppCompatActivity {
     // ------------------------
     private String maskCard(String card) {
         if (card == null || card.length() < 4) return "**** **** **** ****";
-        String last4 = card.replace(" ", "").substring(card.length() - 4);
+        String last4 = card.substring(card.length() - 4);
         return "**** **** **** " + last4;
     }
 
