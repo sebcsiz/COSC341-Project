@@ -27,9 +27,17 @@ public class ProfileOwnerActivity extends AppCompatActivity {
 
         // Go back to login page
         exitButton.setOnClickListener(v -> {
-            Intent intent = new Intent(ProfileOwnerActivity.this, LoginActivity.class);
-            startActivity(intent);
-            finish();
+            new androidx.appcompat.app.AlertDialog.Builder(ProfileOwnerActivity.this)
+                    .setTitle("Logout Confirmation")
+                    .setMessage("Log out of your account?")
+                    .setPositiveButton("Logout", (dialog, which) -> {
+                        Intent intent = new Intent(ProfileOwnerActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                    })
+                    .setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss())
+                    .create()
+                    .show();
         });
 
         // Go to owner main page

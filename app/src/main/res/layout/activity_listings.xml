@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F7F2FB">
+    android:background="#D8BFD8">
 
 
     <ScrollView
@@ -30,13 +30,16 @@
                 android:paddingBottom="16dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Listings"
+                    android:gravity="center"
                     android:textSize="24sp"
                     android:textStyle="bold"
+                    android:fontFamily="sans-serif-smallcaps"
                     android:layout_marginStart="10dp"
-                    android:paddingTop="50dp"/>
+                    android:paddingTop="50dp"
+                    />
             </LinearLayout>
 
             <!-- Dynamic listing cards will be added here -->
@@ -53,8 +56,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="+ Add listing"
+                android:textStyle="bold"
+                android:fontFamily="serif"
                 android:paddingVertical="12dp"
-                android:backgroundTint="#6A4BBC"
+                android:backgroundTint="#9856AD"
                 android:textColor="#FFFFFF" />
 
         </LinearLayout>
@@ -63,44 +68,56 @@
     <!-- Bottom Nav -->
     <LinearLayout
         android:id="@+id/bottomNav"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="9"
         android:gravity="center"
-        android:padding="30dp"
-        android:background="#FFFFFF"
+        android:paddingBottom="18dp"
+        android:background="#9E7BB5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
         <Button
             android:id="@+id/HomeButton"
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Home"
-            android:backgroundTint="#6A4BBC"
+            android:gravity="center"
+            android:text="⾕\nHome"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:backgroundTint="#9E7BB5"
             android:textColor="#FFFFFF"
             android:layout_marginEnd="8dp" />
 
         <Button
             android:id="@+id/ListingsButton"
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="My Tours"
-            android:backgroundTint="#6A4BBC"
+            android:gravity="center"
+            android:text="𐃯\nMy Tours"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:backgroundTint="#9E7BB5"
             android:textColor="#FFFFFF"
             android:layout_marginEnd="8dp"/>
 
         <Button
             android:id="@+id/ProfileButton"
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Profile"
-            android:backgroundTint="#6A4BBC"
+            android:gravity="center"
+            android:text="ጸ\nProfile"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:backgroundTint="#9E7BB5"
             android:textColor="#FFFFFF"/>
     </LinearLayout>
 

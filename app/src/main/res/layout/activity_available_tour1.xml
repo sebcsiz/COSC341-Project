@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#D8BFD8"
     tools:context=".AvailableTour1Activity">
 
     <TextView
@@ -12,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="9dp"
+        android:fontFamily="sans-serif-smallcaps"
         android:text="@string/WineryName"
         android:textSize="25sp"
         android:textStyle="bold"
@@ -35,6 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:text="@string/TourDetails"
+        android:fontFamily="serif"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/AvailableTourImageView"
@@ -44,6 +47,7 @@
         android:id="@+id/MoreParagraphDetailsTextView"
         android:layout_width="188dp"
         android:layout_height="47dp"
+        android:fontFamily="serif"
         android:text="@string/TourDetailsParagraph"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,9 +56,12 @@
 
     <Button
         android:id="@+id/BackToWineryInfoButton"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="#9856AD"
         android:text="@string/BackToWineryInfoPage"
+        android:fontFamily="serif"
+        android:textStyle="bold"
         android:layout_marginStart="25dp"
         android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -62,45 +69,69 @@
 
     <Button
         android:id="@+id/BookTourButton"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="#9856AD"
         android:text="@string/book"
+        android:fontFamily="serif"
+        android:textStyle="bold"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <View
+    <LinearLayout
+        android:id="@+id/bottomNav"
         android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:background="#D3D3D3"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
-    <Button
-        android:id="@+id/SearchHomeButton"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:text="@string/home"
+        android:orientation="horizontal"
+        android:weightSum="9"
+        android:gravity="center"
+        android:paddingBottom="18dp"
+        android:background="#9E7BB5"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <Button
-        android:id="@+id/SearchMyToursButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/myTours"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ProfileButton"
-        app:layout_constraintStart_toEndOf="@+id/SearchHomeButton" />
+        <Button
+            android:id="@+id/SearchHomeButton"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="⾕\nHome"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:backgroundTint="#9E7BB5"
+            android:textColor="#FFFFFF"
+            android:layout_marginEnd="8dp" />
 
-    <Button
-        android:id="@+id/ProfileButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
-        android:text="@string/profile"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <Button
+            android:id="@+id/SearchMyToursButton"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="𐃯\nMy Tours"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:backgroundTint="#9E7BB5"
+            android:textColor="#FFFFFF"
+            android:layout_marginEnd="8dp" />
 
+        <Button
+            android:id="@+id/ProfileButton"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="ጸ\nProfile"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:backgroundTint="#9E7BB5"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

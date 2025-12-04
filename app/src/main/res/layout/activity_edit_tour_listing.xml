@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFFFF">
+    android:background="#D8BFD8">
 
 
     <ScrollView
@@ -24,20 +24,41 @@
             <!-- Page title -->
             <TextView
                 android:id="@+id/tvPageTitle"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Edit / Add Listing"
+                android:gravity="center"
                 android:textSize="24sp"
                 android:textStyle="bold"
+                android:fontFamily="sans-serif-smallcaps"
                 android:paddingTop="50dp"
                 android:paddingBottom="16dp" />
 
-            <!-- Status (Active / Inactive) -->
-            <TextView
-                android:layout_width="wrap_content"
+            <!-- Status  -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Status:"
-                android:textStyle="bold" />
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Status *"
+                    android:fontFamily="serif"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/helpStatus"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginStart="8dp"
+                    android:text="\?"
+                    android:textSize="11sp"
+                    android:gravity="center"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/bg_help_circle" />
+            </LinearLayout>
 
             <Spinner
                 android:id="@+id/spStatus"
@@ -46,25 +67,71 @@
                 android:layout_marginBottom="12dp" />
 
             <!-- Title -->
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Title:"
-                android:textStyle="bold" />
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Title *"
+                    android:fontFamily="serif"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/helpTitle"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginStart="8dp"
+                    android:text="\?"
+                    android:textSize="11sp"
+                    android:gravity="center"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/bg_help_circle" />
+            </LinearLayout>
 
             <EditText
                 android:id="@+id/etTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Name of winery / tour"
-                android:layout_marginBottom="12dp" />
+                android:fontFamily="serif"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/rounded_text_box"/>
+
+            <!-- Location -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location *"
+                android:fontFamily="serif"
+                android:textStyle="bold" />
+
+            <AutoCompleteTextView
+                android:id="@+id/etLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:dropDownHeight="500dp"
+                android:dropDownVerticalOffset="0dp"
+                android:dropDownWidth="350dp"
+                android:hint="Address"
+                android:fontFamily="serif"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/rounded_text_box"
+                android:padding="10dp"
+                android:inputType="text"
+                android:completionThreshold="1" />
 
             <!-- Description -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Description:"
-                android:textStyle="bold" />
+                android:text="Description *"
+                android:textStyle="bold"
+                android:fontFamily="serif"/>
 
             <EditText
                 android:id="@+id/etDescription"
@@ -72,15 +139,18 @@
                 android:layout_height="100dp"
                 android:gravity="top|start"
                 android:hint="Example: Best winery in the Okanagan"
+                android:fontFamily="serif"
                 android:inputType="textMultiLine"
-                android:layout_marginBottom="12dp" />
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/rounded_text_box"/>
 
             <!-- Price -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Price:"
-                android:textStyle="bold" />
+                android:text="Price *"
+                android:textStyle="bold"
+                android:fontFamily="serif"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -92,6 +162,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="$ "
+                    android:fontFamily="serif"
                     android:textSize="16sp" />
 
                 <EditText
@@ -100,7 +171,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="$xxx.cc"
-                    android:inputType="numberDecimal" />
+                    android:fontFamily="serif"
+                    android:inputType="numberDecimal"
+                    android:background="@drawable/rounded_text_box"/>
             </LinearLayout>
 
             <!-- Duration & Capacity row -->
@@ -121,14 +194,18 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Duration:"
+                        android:text="Duration ⏲ *"
+                        android:fontFamily="serif"
                         android:textStyle="bold" />
 
                     <EditText
                         android:id="@+id/etDuration"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Hours" />
+                        android:hint="Hours : Minutes"
+                        android:fontFamily="serif"
+                        android:inputType="time"
+                        android:background="@drawable/rounded_text_box"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -141,24 +218,46 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Capacity:"
-                        android:textStyle="bold" />
+                        android:text="Capacity *"
+                        android:textStyle="bold"
+                        android:fontFamily="serif"/>
 
                     <EditText
                         android:id="@+id/etCapacity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Max capacity"
-                        android:inputType="number" />
+                        android:fontFamily="serif"
+                        android:inputType="number"
+                        android:background="@drawable/rounded_text_box"/>
                 </LinearLayout>
             </LinearLayout>
 
             <!-- Photos -->
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Photo:"
-                android:textStyle="bold" />
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Photo 📷 *"
+                    android:fontFamily="serif"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/helpPhoto"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginStart="8dp"
+                    android:text="\?"
+                    android:textSize="11sp"
+                    android:gravity="center"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/bg_help_circle" />
+            </LinearLayout>
 
             <ImageView
                 android:id="@+id/ivPhotoPreview"
@@ -168,7 +267,7 @@
                 android:src="@drawable/ic_launcher_background"
                 android:background="#DDDDDD"
                 android:layout_marginTop="4dp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="8dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -181,7 +280,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="+ Add photo" />
+                    android:text="+ Add photo"
+                    android:textStyle="bold"
+                    android:fontFamily="serif"
+                    android:backgroundTint="#9856AD"/>
 
                 <Button
                     android:id="@+id/btnRemovePhoto"
@@ -189,24 +291,30 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Remove photo"
-                    android:layout_marginStart="8dp" />
+                    android:textStyle="bold"
+                    android:fontFamily="serif"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="#9856AD"/>
             </LinearLayout>
 
             <!-- Awards -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Awards:"
-                android:textStyle="bold" />
+                android:text="Awards 🏆"
+                android:fontFamily="serif"
+                android:textStyle="bold"/>
 
             <!-- This will show all award names -->
             <TextView
                 android:id="@+id/tvAwardsList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="None yet"
+                android:text="Add awards to your listing."
+                android:fontFamily="serif"
                 android:layout_marginTop="4dp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/rounded_text_box"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -219,7 +327,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="+ Add award" />
+                    android:text="+ Add award"
+                    android:textStyle="bold"
+                    android:fontFamily="serif"
+                    android:backgroundTint="#9856AD"/>
 
                 <Button
                     android:id="@+id/btnClearAwards"
@@ -227,7 +338,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Clear awards"
-                    android:layout_marginStart="8dp" />
+                    android:textStyle="bold"
+                    android:fontFamily="serif"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="#9856AD"/>
             </LinearLayout>
 
             <!-- Save button -->
@@ -235,16 +349,34 @@
                 android:id="@+id/btnSave"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="SAVE"
-                android:textAllCaps="true"
-                android:layout_marginBottom="8dp" />
+                android:text="Save ✔"
+                android:textStyle="bold"
+                android:fontFamily="serif"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="#8F00FF"/>
 
             <!-- Delete listing -->
             <Button
                 android:id="@+id/btnDelete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="DELETE" />
+                android:text="Delete ✘"
+                android:textStyle="bold"
+                android:fontFamily="serif"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="#BA110C"/>
+
+            <!-- Cancel button -->
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cancel ⊘"
+                android:textStyle="bold"
+                android:fontFamily="serif"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="#8A8A8A"
+                android:textColor="#FFFFFF"/>
 
         </LinearLayout>
     </ScrollView>
@@ -252,44 +384,56 @@
     <!-- Bottom Nav -->
     <LinearLayout
         android:id="@+id/bottomNav"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="9"
         android:gravity="center"
-        android:padding="30dp"
-        android:background="#FFFFFF"
+        android:paddingBottom="18dp"
+        android:background="#9E7BB5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
         <Button
             android:id="@+id/HomeButton"
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Home"
-            android:backgroundTint="#6A4BBC"
+            android:gravity="center"
+            android:text="⾕\nHome"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:backgroundTint="#9E7BB5"
             android:textColor="#FFFFFF"
             android:layout_marginEnd="8dp" />
 
         <Button
             android:id="@+id/ListingsButton"
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="My Tours"
-            android:backgroundTint="#6A4BBC"
+            android:gravity="center"
+            android:text="𐃯\nMy Tours"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-smallcaps"
+            android:backgroundTint="#9E7BB5"
             android:textColor="#FFFFFF"
             android:layout_marginEnd="8dp" />
 
         <Button
             android:id="@+id/ProfileButton"
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Profile"
-            android:backgroundTint="#6A4BBC"
+            android:gravity="center"
+            android:text="ጸ\nProfile"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-smallcaps"
+            android:backgroundTint="#9E7BB5"
             android:textColor="#FFFFFF" />
     </LinearLayout>
 

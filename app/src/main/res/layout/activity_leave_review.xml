@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F9F3FF">
+    android:background="#D8BFD8">
 
     <!-- Title "Your Tours" -->
     <TextView
@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="46dp"
         android:text="Your Tours"
-        android:textSize="24sp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="26sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,6 +33,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginBottom="276dp"
         android:text="Leave a Review for Winery:"
+        android:fontFamily="serif"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/ratingBar"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,7 +49,8 @@
         android:layout_marginTop="27dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="53dp"
-        android:background="@android:drawable/edit_text"
+        android:background="@drawable/rounded_text_box"
+        android:fontFamily="serif"
         android:gravity="top|start"
         android:hint="@string/review_hint"
         android:inputType="textMultiLine"
@@ -75,7 +78,10 @@
         android:id="@+id/btnCancelReview"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="#9856AD"
         android:text="Cancel"
+        android:fontFamily="serif"
+        android:textStyle="bold"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="24dp"
@@ -88,7 +94,10 @@
         android:id="@+id/btnSubmitReview"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="#9856AD"
         android:text="Submit"
+        android:fontFamily="serif"
+        android:textStyle="bold"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="24dp"

@@ -1,7 +1,7 @@
 package com.example.cosc341project;
 
-import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,57 +9,60 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.cosc341project.LeaveReviewActivity;
-import com.example.cosc341project.ProfileActivity;
-import com.example.cosc341project.R;
-import com.example.cosc341project.SearchActivity;
-
 public class MyToursActivity extends AppCompatActivity {
 
     private TextView tabUpcoming, tabPast, emptyText;
-    private View underlineUpcoming, underlinePast, pastTourCard;
+    private View underlineUpcoming, underlinePast;
+    private View pastTourCard, upcomingTourCard;
+    private TextView tvUpcomingName, tvUpcomingDate, tvUpcomingDetails;
     private Button btnLeaveReview;
 
     private boolean showingUpcoming = true;
+    private boolean hasUpcoming = false;   // <--- NEW
+    private SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_tours);
 
-        // Hook up views from XML
-        tabUpcoming       = findViewById(R.id.tabUpcoming);
-        tabPast           = findViewById(R.id.tabPast);
+        prefs = getSharedPreferences("MyToursPrefs", MODE_PRIVATE);
+
+        // Hook views
+        tabUpcoming = findViewById(R.id.tabUpcoming);
+        tabPast = findViewById(R.id.tabPast);
         underlineUpcoming = findViewById(R.id.underlineUpcoming);
-        underlinePast     = findViewById(R.id.underlinePast);
-        emptyText         = findViewById(R.id.emptyText);
-        pastTourCard      = findViewById(R.id.pastTourCard);
-        btnLeaveReview    = findViewById(R.id.btnLeaveReview);
+        underlinePast = findViewById(R.id.underlinePast);
+        emptyText = findViewById(R.id.emptyText);
+
+        upcomingTourCard = findViewById(R.id.upcomingTourCard);
+        pastTourCard = findViewById(R.id.pastTourCard);
+
+        tvUpcomingName = findViewById(R.id.tvUpcomingName);
+        tvUpcomingDate = findViewById(R.id.tvUpcomingDate);
+        tvUpcomingDetails = findViewById(R.id.tvUpcomingDetails);
+
+        btnLeaveReview = findViewById(R.id.btnLeaveReview);
+
+        // Bottom nav
         Button homeButton = findViewById(R.id.mytours_home_button);
         Button myToursButton = findViewById(R.id.mytours_my_tours_button);
         Button profileButton = findViewById(R.id.mytours_profile_button);
 
-        // Home -> go back to Search/Home screen
-        homeButton.setOnClickListener(v -> {
-            Intent intent = new Intent(MyToursActivity.this, SearchActivity.class);
-            startActivity(intent);
-        });
-
-        // My Tours
+        homeButton.setOnClickListener(v ->
+                startActivity(new Intent(this, SearchActivity.class)));
         myToursButton.setOnClickListener(v -> {
+            // already here
         });
+        profileButton.setOnClickListener(v ->
+                startActivity(new Intent(this, ProfileActivity.class)));
 
-        // Profile -> open ProfileActivity
-        profileButton.setOnClickListener(v -> {
-            Intent intent = new Intent(MyToursActivity.this, ProfileActivity.class);
-            startActivity(intent);
-        });
+        // Load any saved upcoming tour BEFORE drawing the screen
+        loadUpcomingTours();
 
-        // Default state = Upcoming tab
         setTabSelected(true);
         updateScreen();
 
-        // Tab clicks
         tabUpcoming.setOnClickListener(v -> {
             if (!showingUpcoming) {
                 setTabSelected(true);
@@ -75,39 +78,58 @@ public class MyToursActivity extends AppCompatActivity {
         });
 
         btnLeaveReview.setOnClickListener(v -> {
-            Context context = v.getContext();
-            Intent intent = new Intent(context, LeaveReviewActivity.class);
-
+            Intent intent = new Intent(this, LeaveReviewActivity.class);
             intent.putExtra("TOUR_NAME", "Mission Hill Family Estate");
-
-            context.startActivity(intent);
+            startActivity(intent);
         });
     }
 
     private void setTabSelected(boolean upcomingSelected) {
         showingUpcoming = upcomingSelected;
 
-        if (upcomingSelected) {
-            tabUpcoming.setAlpha(1f);
-            tabPast.setAlpha(0.5f);
-            underlineUpcoming.setVisibility(View.VISIBLE);
-            underlinePast.setVisibility(View.INVISIBLE);
-        } else {
-            tabUpcoming.setAlpha(0.5f);
-            tabPast.setAlpha(1f);
-            underlineUpcoming.setVisibility(View.INVISIBLE);
-            underlinePast.setVisibility(View.VISIBLE);
-        }
+        tabUpcoming.setAlpha(upcomingSelected ? 1f : 0.5f);
+        tabPast.setAlpha(upcomingSelected ? 0.5f : 1f);
+
+        underlineUpcoming.setVisibility(upcomingSelected ? View.VISIBLE : View.INVISIBLE);
+        underlinePast.setVisibility(upcomingSelected ? View.INVISIBLE : View.VISIBLE);
     }
 
     private void updateScreen() {
         if (showingUpcoming) {
-            emptyText.setText("You have no upcoming tours");
-            emptyText.setVisibility(View.VISIBLE);
+            // If we have an upcoming tour, show it.
+            if (hasUpcoming) {
+                upcomingTourCard.setVisibility(View.VISIBLE);
+                emptyText.setVisibility(View.GONE);
+            } else {
+                upcomingTourCard.setVisibility(View.GONE);
+                emptyText.setVisibility(View.VISIBLE);
+                emptyText.setText("You have no upcoming tours");
+            }
             pastTourCard.setVisibility(View.GONE);
         } else {
+            // Past tab
             emptyText.setVisibility(View.GONE);
+            upcomingTourCard.setVisibility(View.GONE);
             pastTourCard.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private void loadUpcomingTours() {
+        boolean exists = prefs.getBoolean("hasUpcoming", false);
+
+        if (exists) {
+            hasUpcoming = true;
+
+            String name = prefs.getString("up_name", "Unknown Tour");
+            String date = prefs.getString("up_date", "Unknown Date");
+            String details = prefs.getString("up_details", "Details not available");
+
+            tvUpcomingName.setText(name);
+            tvUpcomingDate.setText("Date: " + date);
+            tvUpcomingDetails.setText("Details: " + details);
+
+        } else {
+            hasUpcoming = false;
         }
     }
 }
