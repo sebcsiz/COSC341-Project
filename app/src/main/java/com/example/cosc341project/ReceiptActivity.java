@@ -48,9 +48,15 @@ public class ReceiptActivity extends AppCompatActivity {
         String partySize = i.getStringExtra("partySize");
         String date = i.getStringExtra("date");
         String time = i.getStringExtra("time");
-        String cardNumber = i.getStringExtra("cardNumber");
-        String extractedPrice = extractPrice(selectedExperience);
 
+        // FIXED: Read price as double
+        double price = i.getDoubleExtra("price", 0.00);
+
+        // FIXED: Mask card number automatically
+        String cardNumber = i.getStringExtra("cardNumber");
+        String maskedCard = maskCard(cardNumber);
+
+        // Extract experience name (handles newlines)
         String tourName = (selectedExperience != null && selectedExperience.contains("\n"))
                 ? selectedExperience.split("\n")[0]
                 : (selectedExperience != null ? selectedExperience : "Wine Tour");
@@ -65,10 +71,13 @@ public class ReceiptActivity extends AppCompatActivity {
         lineParty.setText("Party: " + partySize);
         lineDateTime.setText("Date and Time: " + date + " " + time);
         lineExperience.setText("Experience: " + tourName);
-        lineAmountPaid.setText("Amount Paid: " + (extractedPrice != null ? extractedPrice : "$0.00"));
-        lineAmountDue.setText("Amount Due: $0.00");
-        lineCardUsed.setText("Card Used: " + (cardNumber != null ? cardNumber : "**** **** **** 4242"));
 
+        // FIXED PRICE
+        lineAmountPaid.setText("Amount Paid: $" + String.format("%.2f", price));
+        lineAmountDue.setText("Amount Due: $0.00");
+
+        // FIXED CARD
+        lineCardUsed.setText("Card Used: " + maskedCard);
 
         // ---- Save this booking as an "upcoming tour" for MyTours ----
         SharedPreferences prefs = getSharedPreferences("MyToursPrefs", MODE_PRIVATE);
@@ -86,7 +95,7 @@ public class ReceiptActivity extends AppCompatActivity {
                     + "Name: " + name + "\n"
                     + "Party: " + partySize + "\n"
                     + "Date: " + date + " " + time + "\n"
-                    + "Amount Paid: " + (extractedPrice != null ? extractedPrice : "$0.00");
+                    + "Amount Paid: $" + String.format("%.2f", price);
 
             QRCodeWriter writer = new QRCodeWriter();
             BitMatrix matrix = writer.encode(qrData, BarcodeFormat.QR_CODE, 400, 400);
@@ -125,7 +134,7 @@ public class ReceiptActivity extends AppCompatActivity {
             }
         });
 
-        // --- Share or Export ---
+        // --- Share receipt ---
         shareReceipt.setOnClickListener(v -> {
             String receiptText =
                     "🍷 Booking Confirmation 🍷\n\n" +
@@ -134,7 +143,7 @@ public class ReceiptActivity extends AppCompatActivity {
                             "Date: " + date + " " + time + "\n" +
                             "Name: " + name + "\n" +
                             "Party: " + partySize + "\n" +
-                            "Amount Paid: " + (extractedPrice != null ? extractedPrice : "$0.00") + "\n\n" +
+                            "Amount Paid: $" + String.format("%.2f", price) + "\n\n" +
                             "Thank you for booking with " + wineryName + "!";
 
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
@@ -145,23 +154,25 @@ public class ReceiptActivity extends AppCompatActivity {
         });
     }
 
-    private String extractPrice(String text) {
-        if (text == null) return null;
-        int index = text.indexOf("Price:");
-        if (index == -1) return null;
-        return text.substring(index + 6).trim();
+    // ------------------------
+    // MASK CARD NUMBER
+    // ------------------------
+    private String maskCard(String card) {
+        if (card == null || card.length() < 4) return "**** **** **** ****";
+        String last4 = card.replace(" ", "").substring(card.length() - 4);
+        return "**** **** **** " + last4;
     }
+
+    // Navigation Buttons
     public void onClickGoToProfile(View view){
-        Intent intent = new Intent(ReceiptActivity.this, ProfileActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(ReceiptActivity.this, ProfileActivity.class));
     }
+
     public void onClickGoToSearch(View view) {
-        Intent intent = new Intent(ReceiptActivity.this, SearchActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(ReceiptActivity.this, SearchActivity.class));
     }
+
     public void onClickGoToMyTours(View view) {
-        Intent myToursIntent = new Intent(ReceiptActivity.this, MyToursActivity.class);
-        startActivity(myToursIntent);
+        startActivity(new Intent(ReceiptActivity.this, MyToursActivity.class));
     }
 }
-
