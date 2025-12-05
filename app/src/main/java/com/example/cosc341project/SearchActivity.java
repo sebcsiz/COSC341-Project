@@ -103,7 +103,7 @@ public class SearchActivity extends AppCompatActivity {
                 //creating an intent to start WineryInfoActivity
                 Intent wineryInfoIntent = new Intent (SearchActivity.this, WineryInfoActivity.class);
                 startActivity(wineryInfoIntent); //start the new activity
-                Toast.makeText(getApplicationContext(), "Opening " + selectedItem + "Info Page", Toast.LENGTH_SHORT).show();//show toast message about what is being opened
+                Toast.makeText(getApplicationContext(), "Opening " + selectedItem + " Info Page", Toast.LENGTH_SHORT).show();//show toast message about what is being opened
             }
         });//end listView listener
 
